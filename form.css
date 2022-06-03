@@ -1,0 +1,204 @@
+* { /*Grund settings på sidan, gör så det inte finns någo9n margin eller padding som kan störa designen*/
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+
+/*Globala menyn*/
+
+ul { /*Globala menyn, bestämmer alla "ul" i klassen ".buttons"*/
+text-align: center; /*Gör så att knapparna är centrerat*/
+background-color: #000000; /*Globala menyns backgrunds-färg*/
+}
+
+.buttons ul li { /*Positionerna på listans knappar*/
+    margin: 20px 10px; /*Hur bredd och hur stor höjden är*/
+    display: inline-block; /*Gör så att knapparna ligger horizontelt*/
+  }
+  .buttons ul li a { /*Lite fixering på animationen och knapparna/länkarna*/
+    text-decoration: none; /*Gör så att man inte ser att det är länkar*/
+    font-size: 40px; /*Storleken på texten*/
+    padding: 5px 15px; /*Tjockleken på animationen/backgrunden*/
+    color: rgb(255, 255, 255); /*Färg på text*/
+    border-radius: 50px; /*Hur runda kanter knapparna har*/
+    background: rgb(0, 0, 0); /*Backgrunden på knapparna, utan backgrund ser man bara animationen och text, denna bbackgrund gör så att det ser ut som att animationen går runt knapparna*/
+    position: relative; /*Gör så att animationen bakom knapparna håller sig i position när man hovrar*/
+    line-height: 50px; /*Hur stort mellanrum det är mellan knapparna*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+  }
+  
+  li > a { /*Denna är till för att bestämma alla <a> taggar innanför alla <li> taggar*/
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .buttons ul li a:after { /*Animationen på knapparna*/
+    position: absolute; /*Gör så att animationen på knapparna har samma följd och sitter på samma sätt som knapparna */
+    content: ""; /*Gör så att jag kan bygga animationen*/
+    background: linear-gradient(#14ffe9, #f2ff3f, #ff00e0); /*Färg kombinationen på animationen*/
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 104%; /*Bredden på animationen*/
+    height: 110%; /*Höjden på animationen, höjden och bredden ska vara lite större än knapparna för att man ska kunna se animationen*/
+    left: -2%; /*Position på animationen*/
+    top: -6%; /*Hur stor bordern med ringen är på topen*/
+    border-radius: 50px; /*Hur rund bordern är*/
+    transform: scaleX(0); /*Bestämmer hur border animationen ska öppnas, Y eller X led, i detta fall så börjar animationen från mitten och uu, i X-led*/
+    z-index: -2; /*Gör så att animationen håller sig bakom knapparna*/
+    animation: rotate 1.5s linear infinite; /*Animationens funktion, hur snabbt färgerna flyttar sig*/
+    transition: transform 0.3s ease; /*Hur snabbt animationen förflyttar sig när man hovrar på knapparna*/
+    
+  }
+  .buttons a:hover:after { /*Gör så att färgerna vissas när man hovrar*/
+    transform: scaleX(1); /*I vilken riktning färgerna ska färdas*/
+  }
+  .buttons a:hover { /*Hur knapparna/länkarna ska byta färg när man hovrar. Om man vill att de ska byta färg*/
+    color: rgb(2, 111, 161); /*Vilken färg texten har när man hovrar*/
+  }
+  
+  @keyframes rotate { /*Rotationen på färgerna*/
+    100%{
+      filter: hue-rotate(360deg); /*Färgerna roterar 360 grader, alltså runt och runt*/
+    }
+  }
+/*Slut på globala menyn*/
+
+/*Början på form*/
+.container { /*Denna innehåller det viktiga så att "form" kan vara på plats*/
+  position: relative; /*Gör så allt är inom containern*/
+  width: 35rem; /*Bredden på "form"*/
+  height: 40rem; /*Höjden på "form"*/
+  border-radius: 20px; /*Hur runda kanter det är på "form"*/
+  padding: 40px; /*Hur bredda sidorna ska vara från elementen i containern*/
+  background: rgb(120, 0, 136); /*Bakgrunds-färgen på "form"*/
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 20px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) -3px -4px 0px inset; /*Skuggan på "form" container*/
+  text-align: center; /*Gör så rubriken är centrerad*/
+  margin: 100px auto; /*Gör så att containern håller sig i mitten och en del under globala menyn*/
+}
+
+
+.brand-title { /*Detta är rubriken vilket är "FORM"*/
+  font-weight: 900; /*Hur tjock ordet ska vara*/
+  margin-top: 2rem; /*Hur stor marginal "FORM" ska ha från toppen av container*/
+  font-size: 50px; /*Storleken på texten*/
+  color: #ffd901; /*Färgen på texten*/
+  letter-spacing: 1px; /*Hur stora mellanrum det är mellan bokstäverna*/
+  font-family: 'Iceland', cursive; /*Stilen på texten*/
+}
+
+  .inputs { /*Setta är spalterna man skriver i*/
+    text-align: left; /*Positionen på rubriken till spaltrerna är positionerad till vänster*/
+    margin-top: 60px; /*Mellanrummet mellan spalterna och toppen*/
+  }
+  
+  label, input { /*Detta är spalterna*/
+    display: block; /*Generarar block som gör att spalterna inte är intima*/
+    width: 100%; /*Bredden på spalterna*/
+    border: none; /*Gör så att det inte är någon border*/
+  }
+  
+  label { /*Detta är rubrikerna för input/spalterna man skriver i*/
+    margin-bottom: 4px; /*Mellanrummet mellan rubriken och spalterna*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+    font-size: 25px; /*Storleken på texten*/
+    color: white; /*Färgen på texten*/
+  }
+  
+  label:nth-of-type(2) { /*Detta är den andra rubriken vilket är "password" the 2nd child*/
+    margin-top: 40px; /*Mellanrummet mellanb "password" och första spalten*/
+  }
+  
+  input::placeholder { /*Detta är texten inom spalterna aka texten som är placeholder*/
+    color: gray; /*Färgen på texten som är placeholder*/
+  }
+  
+  input { /*Detta är spalten man skriver i*/
+    background: #ecf0f3; /*Färgen på inputen/splaten*/
+    padding: 10px; /*Hur tjock spalten ska vara*/
+    padding-left: 20px; /*Detta är hur mycket åt vänster placeholder texten ska vara i spalten*/
+    height: 50px; /*Höjden på spalten*/
+    font-size: 14px; /*Storleken på texten i spalten*/
+    border-radius: 50px; /*Hur runda kanter spalten ska ha*/
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white; /*Spaltens skugga*/
+  }
+/*Slut på form, container*/
+
+  /*Knappen*/
+  .submit { /*Diven som kanppen har*/
+   margin-left: 5.5vw; /*Hur mycket från vänster knappen ska vara, *en nödlösning för att jag ska centrera knappen så det ser bra ut på min skärm*, inte permanent*/
+	 margin-top: 100px; /*Hur mycket från toppen knappen ska vara från andra splaten (password)*/
+   font-family: 'Iceland', cursive; /*Stilen på texten*/
+}
+
+.btn:link,
+.btn:visited { /*Lite LoVe action här*/
+    text-transform: uppercase; /*Texten är alltid "CAPS"*/
+    text-decoration: none; /*Finns ingen underline på länk texten*/
+    padding: 18px 100px; /*Tjockleken på knappen*/
+    border-radius: 100px; /*Hur rund knappen ska vara*/
+    transition: all .7s; /*Hur snabbt kanppen ska färdas från 0 - 100*/
+    position: absolute; /*Gör så att knappen inte täcker hela containern när man rör den*/
+    font-size: 20px; /*Storleken på texten*/
+}
+
+
+.btn:hover { /*Lite HAte action*/
+    transform: translateY(-3px); /*I vilken rikting knappen färdas när man hovrar*/
+    box-shadow: 0 10px 50px rgba(251, 255, 23, 0.562); /*Knappens skugga när man hovrar*/
+}
+
+.btn:active { /*Fortfarande lite HAte action*/
+    transform: translateY(-2px); /*Hur knappen färdas när man aktiverar den, aka klickar på knappen*/
+    box-shadow: 0 5px 50px rgba(0, 255, 128, 0.644); /*Skuggan på knappen när man klickar på den*/
+}
+
+.btn { /*Detta är knappen*/
+    background-color: rgb(255, 255, 255); /*Färgen på knappen*/
+    color: rgb(0, 0, 0); /*Färgen på texten i knappen*/
+    animation: moveInBottom 1.5s ease-out; /*Animationen för knappen som rör sig när man hovrar*/
+}
+
+.btn::after { /*Detta är skuggan som flyter fram när man rör knappen*/
+    content: ""; /*Gör så att jag kan bygga animationen*/
+    height: 100%; /*Höjden på skuggan/animationen*/
+    width: 100%; /*Bredden på skuggan/animationen*/
+    border-radius: 100px; /*Hur runda kanter animationen ska ha*/
+    position: absolute; /*Gör så att vi kan se animationen när man hovrar knappen*/
+    top: 0; /*Gör så att animationen håller sig vid samma position som kanppen*/
+    left: 0; /*Gör så att animationen håller sig vid samma position som kanppen*/
+    z-index: -1; /*Gör så att animationen är bakom knappen så länge man inte aktiverar den*/
+    transition: all .8s; /*Hur snabbt animationen ska ta vid aktivation*/
+    background-color: rgb(255, 255, 255); /*Färgen på animationen*/
+}
+
+.btn:hover::after { /*Vad som händer när man hovrar*/
+    transform: scaleX(1.6) scaleY(1.6); /*Hur animatione ska färdas*/
+    opacity: 0; /*Gör så att animationen försvinner*/
+}
+
+
+@keyframes moveInBottom { /*Detta är hur knappen rör sig när man går in på denna sida*/
+  0% { /*Vid 0% sker detta*/
+      opacity: 0; /*Man ser inte knappen vid starten*/
+      transform: translateY(30px); /*Kanppen färdas i denna rikting*/
+  } /*Slut på starten*/
+ 
+  100% { /*Vid 100% sker detta*/
+      opacity: 1; /*Man kan nu se knappen*/
+      transform: translateY(0px); /*Inget mer färd för knappen*/
+  } /*Slut på knappens slut*/
+} /*Slut på knappen rörelse vid start*/
+/*Slut på knappen*/
+
+
+/* MADE BY TAG*/
+  p { /*"Made by" texten*/
+    position: absolute; /*Denna gör så att texten håller sig vid vänstra hörnet*/
+    font-size: 20px; /*Storleken på texten*/
+    bottom: 2px; /*Mellanrummet mellan texten och botten av container*/
+    left: 10px; /*Mellanrummet mellan vänster sidan och texten*/
+    color: rgb(255, 255, 255); /*Färgen på texten*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+  }
+  

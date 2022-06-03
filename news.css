@@ -1,0 +1,155 @@
+* { /*Grund settings på sidan, gör så det inte finns någo9n margin eller padding som kan störa designen*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+
+/*Globala menyn*/
+
+ul { /*Globala menyn*/
+  text-align: center; /*Gör så att knapparna är centrerat*/
+  background-color: #000000; /*Globala menyns backgrunds-färg*/
+}
+
+  .buttons ul li { /*Positionerna på listans knappar*/
+    margin: 20px 10px; /*Hur bredd och hur stor höjden är*/
+    display: inline-block; /*Gör så att knapparna ligger horizontelt*/
+  }
+
+  .buttons ul li a { /*Lite fixering på animationen och knapparna/länkarna*/
+    text-decoration: none; /*Gör så att man inte ser att det är länkar*/
+    font-size: 40px; /*Storleken på texten*/
+    padding: 5px 15px; /*Tjockleken på animationen/backgrunden*/
+    color: rgb(255, 255, 255); /*Färg på text*/
+    border-radius: 50px; /*Hur runda kanter knapparna har*/
+    background: rgb(0, 0, 0); /*Backgrunden på knapparna, utan backgrund ser man bara animationen och text, denna bbackgrund gör så att det ser ut som att animationen går runt knapparna*/
+    position: relative; /*Gör så att animationen bakom knapparna håller sig i position när man hovrar*/
+    line-height: 50px; /*Hur stort mellanrum det är mellan knapparna*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+  }
+  
+  li > a { /*Denna är till för att bestämma alla <a> taggar innanför alla <li> taggar*/
+    text-transform: uppercase; /**/
+    position: relative; /**/
+    z-index: 1; /**/
+  }
+
+  .buttons ul li a:after { /*Animationen på knapparna*/
+    position: absolute; /*Gör så att animationen på knapparna har samma följd och sitter på samma sätt som knapparna */
+    content: ""; /*Gör så att jag kan bygga animationen*/
+    background: linear-gradient(#14ffe9, #f2ff3f, #ff00e0); /*Färg kombinationen på animationen*/
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 104%; /*Bredden på animationen*/
+    height: 110%; /*Höjden på animationen, höjden och bredden ska vara lite större än knapparna för att man ska kunna se animationen*/
+    left: -2%; /*Position på animationen*/
+    top: -6%; /*Hur stor bordern med ringen är på topen*/
+    border-radius: 50px; /*Hur rund bordern är*/
+    transform: scaleX(0); /*Bestämmer hur border animationen ska öppnas, Y eller X led, i detta fall så börjar animationen från mitten och uu, i X-led*/
+    z-index: -2; /*Gör så att animationen håller sig bakom knapparna*/
+    animation: rotate 1.5s linear infinite; /*Animationens funktion, hur snabbt färgerna flyttar sig*/
+    transition: transform 0.3s ease; /*Hur snabbt animationen förflyttar sig när man hovrar på knapparna*/
+  }
+
+  .buttons a:hover:after { /*Gör så att färgerna vissas när man hovrar*/
+    transform: scaleX(1); /*I vilken riktning färgerna ska färdas*/
+  }
+
+  .buttons a:hover { /*Hur knapparna/länkarna ska byta färg när man hovrar. Om man vill att de ska byta färg*/
+    color: rgb(2, 111, 161); /*Vilken färg texten har när man hovrar*/
+  }
+  
+  @keyframes rotate { /*Rotationen på färgerna*/
+    100%{
+      filter: hue-rotate(360deg); /*Färgerna roterar 360 grader, alltså runt och runt*/
+    }
+  }
+/*Slut på globala menyn*/
+
+/*Början av layout*/
+.grid { /*Detta är layouten på hela sidan*/
+    display: grid; /*Bestämmer vad som ska användas för att bestämma layouten, i detta fall är det grid. Denna är som en aktivering så att grid kan fungera.*/
+    grid-template-columns: .5fr 2fr .5fr; /*Bestämmer hur columnerna ska vara, hur stora och hur många columner det ska vara*/
+    grid-template-rows: .4fr 2fr .3fr; /*Bestämmer hur stora rows det ska vara och hur många rows*/
+    grid-column-gap: 2px; /*Detta är gep mellan columnerna alltså mellan rummet vertikalt för varje column*/
+    height: calc(100vh - 58px - 72px); /*Detta bestämmer hur stor height hemisdan ska vara, alltså vart griden ska få plats, i detta fall använder jag "calc" funktionen för att räkna bort globala menyns höjd och footerns höjd*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+}
+/*Slut på layout*/
+
+/*Stilen på span*/
+span { /*Detta bestämmer hur texten som har "span" elementen ska se ut, de ska skillja sig från den vanliga texten*/
+  color: rgb(151, 56, 56); /*Färgen på texten med "span" elementen*/
+  font-weight: bold; /*Gör så att texten är lite tjockare aka bold*/
+  text-transform: uppercase; /*Gör så att texten är "CAPS" aka stor*/
+}
+/*Slut av span*/
+
+/*Rubriken*/
+.header { /*Detta är texten/rubriken för sidan*/
+    grid-area: 1 / 1 / 2 / 4; /*Bestämmer vart rubriken ska placeras genom att använda grid*/ 
+    text-align: center; /*Centrerar texten*/
+    font-size: 30px; /*Bestämmer storleken på texten*/
+    margin-top: 1em; /*Hur långt ifrån rubriken ska vara från toppen av sidan (mellanrummet mellan toppen och rubriken*/
+}
+/*Slut av rubriken*/
+
+/*Början av artikeln som är huvud innehållet*/
+.main { /*Detta är huvud-delen på sidan, alltså artikeln*/
+    grid-area: 2 / 2 / 2 / 3; /*Bestämmer vart artikeln ska vara placerad genom att använda grid*/
+    text-align: center; /*Centrerar texten*/
+    font-size: 20px; /*Storleken på texten*/
+    margin-top: 20px; /*Hur stort mellanrummet är mellan header och main aka rubriken och artikeln*/
+    background-color: rgba(252, 245, 245, 0.651); /*Bakgrunds färg för artikeln*/
+    border-radius: 10px; /*Rundar kanterna på bakgrunds färgen bakom artikeln*/
+}
+
+article > p { /*Bestämmer hur alla "p" element i  child elementet "article" ska se ut*/
+    font-size: 20px; /*Storleken på texten, fast bara på texten i alla "p" element*/
+    font-weight: bold; /*Gör så att texten är tjock*/
+    letter-spacing: 1px; /*Mellanrummet mellan bokstäverna*/
+}
+/*Slut av huvud innehållet*/
+
+/*Insändaren*/
+.navbar-1 { /*Vänstra delen av sidan aka insändaren*/
+    grid-area: 2 / 1 / 2 / 2; /*Bestämmer vart insändaren ska vara placerad genom att använda grid*/
+    margin-left: 10px; /*Mellanrummet mellan texten och vänster sidan*/
+    text-align: center; /*Centrerar texten*/
+    font-size: 20px; /*Storleken på texten*/
+    font-weight: bold; /*Gör så att texten är tjock*/
+    margin-top: 20px; /*Mellanrummet mellan header och nav aka rubriken och insändaren*/
+}
+/*Slut på insändaren*/
+
+/*Reklam*/
+.navbar-2 { /*Höger sidan vilket är reklamen*/
+    grid-area: 2 / 3 / 2 / 3; /*Placerar reklamen genom att använda grid*/
+    margin-top: 20px; /*Mellanrummet mellan rubriken och reklamen*/
+    margin-left: 50px; /*Mellanrummet mellan main och nav2 alltså artikeln och reklamen*/
+}
+/*Slut på reklam*/
+
+/*Sista delen footer*/
+.footer { /*Detta är i slutet av sidan, längst ner*/
+    grid-area: 3 / 1 / auto / 4; /*Bestämmer hur footer ska vara placerad genom grid*/
+    background-color: #000000; /*Backgrunds-färgen på footer*/
+    line-height: 1.5em; /*Bestämmer hur stort mellanrum det ska vara melan texterna, h2, h3 och p*/
+    text-align: center; /*Gör så att texten är centrerad*/
+    color: aliceblue; /*Textens färg*/
+    margin-top: 20px; /*  Mellanrummet mellan footer och nav, main, nav*/
+    letter-spacing: 2px; /*Mellanrummet mellan bokstäverna*/
+}
+/*Slut på footer*/
+
+/*LoVe Focus HAte*/
+a:link { color: blue; } /*Är blå när man inte har klickat på länken*/
+/*o*/
+a:visited { color: rgb(255, 134, 255); } /*Blir rosa när man har klickat på länken*/
+/*e*/
+a:focus { color: purple; } /*Länken kommer bli lila när man är på länken med "TAB" på tangentbordet*/
+a:hover { background: yellow; } /*Blir gul när man hovrar över länken*/
+a:active { color: red; } /*Blir röd när man aktiverar länken*/
+/*t*/
+/*e*/
+/*Slut på LoVe Focus HAte*/

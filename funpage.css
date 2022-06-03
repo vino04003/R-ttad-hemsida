@@ -1,0 +1,248 @@
+* { /*Grund settings på sidan, gör så det inte finns någo9n margin eller padding som kan störa designen*/
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+
+/*Globala menyn*/
+
+.buttons > ul { /*Globala menyn, bestämmer alla "ul" i klassen ".buttons"*/
+text-align: center; /*Gör så att knapparna är centrerat*/
+background-color: #000000; /*Globala menyns backgrunds-färg*/
+}
+
+.buttons ul li { /*Positionerna på listans knappar*/
+    margin: 20px 10px; /*Hur bredd och hur stor höjden är*/
+    display: inline-block; /*Gör så att knapparna ligger horizontelt*/
+  }
+  .buttons ul li a { /*Lite fixering på animationen och knapparna/länkarna*/
+    text-decoration: none; /*Gör så att man inte ser att det är länkar*/
+    font-size: 40px; /*Storleken på texten*/
+    padding: 5px 15px; /*Tjockleken på animationen/backgrunden*/
+    color: rgb(255, 255, 255); /*Färg på text*/
+    border-radius: 50px; /*Hur runda kanter knapparna har*/
+    background: rgb(0, 0, 0); /*Backgrunden på knapparna, utan backgrund ser man bara animationen och text, denna bbackgrund gör så att det ser ut som att animationen går runt knapparna*/
+    position: relative; /*Gör så att animationen bakom knapparna håller sig i position när man hovrar*/
+    line-height: 50px; /*Hur stort mellanrum det är mellan knapparna*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+  }
+  
+  li > a { /*Denna är till för att bestämma alla <a> taggar innanför alla <li> taggar*/
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .buttons ul li a:after { /*Animationen på knapparna*/
+    position: absolute; /*Gör så att animationen på knapparna har samma följd och sitter på samma sätt som knapparna */
+    content: ""; /*Gör så att jag kan bygga animationen*/
+    background: linear-gradient(#14ffe9, #f2ff3f, #ff00e0); /*Färg kombinationen på animationen*/
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 104%; /*Bredden på animationen*/
+    height: 110%; /*Höjden på animationen, höjden och bredden ska vara lite större än knapparna för att man ska kunna se animationen*/
+    left: -2%; /*Position på animationen*/
+    top: -6%; /*Hur stor bordern med ringen är på topen*/
+    border-radius: 50px; /*Hur rund bordern är*/
+    transform: scaleX(0); /*Bestämmer hur border animationen ska öppnas, Y eller X led, i detta fall så börjar animationen från mitten och uu, i X-led*/
+    z-index: -2; /*Gör så att animationen håller sig bakom knapparna*/
+    animation: rotate 1.5s linear infinite; /*Animationens funktion, hur snabbt färgerna flyttar sig*/
+    transition: transform 0.3s ease; /*Hur snabbt animationen förflyttar sig när man hovrar på knapparna*/
+    
+  }
+  .buttons a:hover:after { /*Gör så att färgerna vissas när man hovrar*/
+    transform: scaleX(1); /*I vilken riktning färgerna ska färdas*/
+  }
+  .buttons a:hover { /*Hur knapparna/länkarna ska byta färg när man hovrar. Om man vill att de ska byta färg*/
+    color: rgb(2, 111, 161); /*Vilken färg texten har när man hovrar*/
+  }
+  
+  @keyframes rotate { /*Rotationen på färgerna*/
+    100%{
+      filter: hue-rotate(360deg); /*Färgerna roterar 360 grader, alltså runt och runt*/
+    }
+  }
+/*Slut på globala menyn*/
+
+/*Början på memory spelet*/
+  p { /*Detta är texten som förklarar att spelet inte är klart*/
+    font-weight: bold; /*Texten blir tjock*/
+    text-transform: uppercase; /*Texten blir automatiskt "CAPS"*/
+  }
+
+  h1 { /*Detta är texten som förklarar hur många liv man har kvar*/
+    margin-bottom: 15px; /*Mellanrummet mellan spelet och "Lives"*/
+  }
+  
+  section { /*Detta genererar divs i JS så vi ger dem position i css*/
+    display: grid; /*Bestämmer vad som ska användas för att bestämma layouten, i detta fall är det grid. Denna är som en aktivering så att grid kan fungera.*/
+    grid-template-rows: repeat(4, 10rem); /*Bestämmer hur stora och hur många rows det ska vara*/
+    grid-template-columns: repeat(4, 10rem); /*Bestämmer hur columnerna ska vara, hur stora och hur många columner det ska vara*/
+    perspective: 800px; /*Vilket perspektiv memory brikorna ska ha när de vänds*/
+    grid-gap: 2rem; /*Mellanrummet mellan brickorna/spel-pjäserna*/
+  
+  }
+
+  .container { /*Vart spelet ska vara aplacerat på sidan*/
+    display: flex; /*Denna är effektiv om du vill placera eller justera ett element, denna hittar plats att vara*/
+    align-items: center; /*Centrerar spelet*/
+    flex-direction: column; /*Gör så att elementen placeras i columner så de är på varandra, text över spelet och inte bredvid*/ 
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+    font-size: 25px; /*Storleken på texten, liven aka "Lives"*/
+    margin-top: 25px; /*Mellanrummet mellan texten och toppen av sidan*/
+  } 
+  
+  .back { /*Den sidan vi ser när vi inte kan se vilka kort det är, detta är en klass från JavaScripten*/
+    background: 
+    repeating-linear-gradient( -45deg,#000, rgb(10, 10, 10) 1px,rgb(63, 63, 63) 4px); /*Hur korten ska se ut*/
+    backface-visibility: hidden; /*Gör så att man kan se vad som är bakom korten  när man vänder på dem*/
+  }
+  
+  .face,
+  .back { /*Båda sidorna av korten*/
+    position: absolute; /*Gör så att korten sitter på varsin sida när man vänder dem*/
+    width: 100%; /*Bredden på korten, utan detta kommer korten vara överallt*/
+    height: 100%; /*Höjden på korten, utan detta kommer korten vara överallt*/
+    border-radius: 20px; /*Hur runda kanterna är på bakgrunden och bilderna*/
+    pointer-events: none; /*Gör så att bilderna inte ragerar på pekarhändelser*/
+  }
+  
+  .card { /*Korten/pjäserna/boxarnas "skal", klass från JavaScript*/
+    transform-style: preserve-3d; /*Denna gör så att man kan se båda sidorn när man vänder på korten*/
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /*Bestämmer hur korten vänder sig och hur snabbt*/
+    box-shadow: black 0px 5px 15px; /*Skuggan på korten*/
+    border-radius: 20px; /*Hur runda kanter korten har*/
+  }
+  
+  .toggleCard { /*Klass från JavaSript*/
+    transform: rotateY(180deg); /*Bestämmer hur många grader korten ska vända sig*/
+  }
+/*Slut på spelet*/
+
+/*Bakgrund till spelet*/
+
+body { /*Färgen på bakgrunden*/
+  animation: color 50s infinite linear; /*Detta är hur bakgrunds färgen ska agera, den har fått en "klass" som vi använder senare, men bakgrunden ska ta 50s för att gå igenom alla färger*/
+}
+
+.area { /*Bakgrundens position*/
+  z-index: -1; /*Är bakom spelet*/
+  width: 100%; /*Bredden på bakgrunden*/
+}
+
+.circles { /*Positionerna på "cirklarna"/"boxarna"*/
+  position: absolute; /*Gör så att man inte kan se boxarna innan de dycker upp. De är fast.*/ 
+  top: 0; /*Gör så att animationen inte börjar för långt ner*/
+  width: 100%; /*Bredden på boxarnas färd*/
+  height: 100%; /*Höjden på boxarnas färd*/
+  overflow: hidden; /*Gör så att vi inte kan se boxarna innan de tycker upp*/
+}
+
+.circles li { /**/
+  position: absolute; /*Gör så att boxarna börjar nere*/ 
+  list-style: none; /*Gör så att man inte ser punkter från listan*/
+  background: repeating-linear-gradient( -45deg,#000, rgb(10, 10, 10) 1px,rgb(63, 63, 63) 4px); /*Färgen på boxarna i bakgrunden*/
+  animation: animate 25s linear infinite; /*Hur lång tid animationen ska varar igång innan det kommer nya boxar, vi ger animationen en klass vilket är animationen, används senare*/
+  bottom: -150px; /*Var animationen startar*/
+}
+
+.circles li:nth-child(1) { /*Box x1, jag använder css selector egenskaper för att ge olika värden på de olika boxarna utan att använda någon klass*/
+  left: 25%; /*Positionen på boxen x1*/
+  width: 80px; /*Bredden på boxen x1*/
+  height: 80px; /*Höjden på boxen x1*/
+  animation-delay: 0s; /*Box x1 kommer börja direkt, ingen delay*/
+} 
+
+
+.circles li:nth-child(2) { /*Box x2*/
+  left: 10%; /*Positionen på boxen x2*/
+  width: 20px; /*Bredden på boxen x2*/
+  height: 20px; /*Höjden på boxen x2*/
+  animation-delay: 2s; /*Box x2 kommer börja efter 2s*/
+  animation-duration: 12s; /*Box x2 kommer vara igång i 12s*/
+}
+
+.circles li:nth-child(3) { /*Box x3*/
+  left: 70%; /*Positionen på boxen x3*/
+  width: 20px; /*Bredden på boxen x3*/
+  height: 20px; /*Höjden på boxen x3*/
+  animation-delay: 4s; /*Box x3 kommer börja efter 4s*/
+}
+
+.circles li:nth-child(4) { /*Box x4*/
+  left: 40%; /*Positionen på boxen x4*/
+  width: 60px; /*Bredden på boxen x4*/
+  height: 60px; /*Höjden på boxen x4*/
+  animation-delay: 0s; /*Box x4 kommer börja direkt, ingen delay*/
+  animation-duration: 18s; /*Box x4 kommer vara igång i 18s*/
+}
+
+.circles li:nth-child(5) { /*Box x5*/
+  left: 65%; /*Positionen på boxen x5*/
+  width: 20px; /*Bredden på boxen x5*/
+  height: 20px; /*Höjden på boxen x5*/
+  animation-delay: 0s; /*Box x5 kommer börja direkt, ingen delay*/
+}
+
+.circles li:nth-child(6) { /*Box x6*/
+  left: 75%; /*Positionen på boxen x6*/
+  width: 110px; /*Bredden på boxen x6*/
+  height: 110px; /*Höjden på boxen x6*/
+  animation-delay: 3s; /*Box x6 kommer börja efter 3s*/
+}
+
+.circles li:nth-child(7) { /*Box x7*/
+  left: 35%; /*Positionen på boxen x7*/
+  width: 150px; /*Bredden på boxen x7*/
+  height: 150px; /*Höjden på boxen x7*/
+  animation-delay: 7s; /*Box x7 kommer börja efter 7s*/
+} 
+
+.circles li:nth-child(8) { /*Box x8*/
+  left: 50%; /*Positionen på boxen x8*/
+  width: 25px; /*Bredden på boxen x8*/
+  height: 25px; /*Höjden på boxen x8*/
+  animation-delay: 15s; /*Box x8 kommer börja efter 15s*/
+  animation-duration: 45s; /*Box x8 kommer vara igång i 45s*/
+}
+
+.circles li:nth-child(9) { /*Box x9*/
+  left: 20%; /*Positionen på boxen x9*/
+  width: 15px; /*Bredden på boxen x9*/
+  height: 15px; /*Höjden på boxen x9*/
+  animation-delay: 2s; /*Box x9 kommer börja efter 2s*/
+  animation-duration: 35s; /*Box x9 kommer vara igång i 35s*/
+}
+
+.circles li:nth-child(10) { /*Box x10*/
+  left: 85%; /*Positionen på boxen x10*/
+  width: 150px; /*Bredden på boxen x10*/
+  height: 150px; /*Höjden på boxen x10*/
+  animation-delay: 0s; /*Box x10 kommer börja direkt, ingen delay*/
+  animation-duration: 11s; /*Box x10 kommer vara igång i 11s*/
+}
+
+
+
+@keyframes animate { /*Bestämmer hur boxarna kommer agera med hjälp av klassen "animation" från tidigare kod*/
+  0%{ /*Detta sker vid start*/
+      transform: translateY(0) rotate(0deg); /*Boxarna roterar inget vid start*/
+      opacity: 1; /*Man kommer se boxarna vid start*/
+  } /*Slut på starten*/
+  100%{ /*Vad som sker när boxarna färdas från 0% till 100%*/
+      transform: translateY(-100vh) rotate(720deg); /*Färdas genom hela skrämen fast animationen börjar nerifrån till upp. Boxarna kommer rotera 720 grader under tiden boxarna färdas*/
+      opacity: 0; /*Boxarna kommer försvinna långsamt när boxarna börjar bli klara med sin färd*/
+      border-radius: 50%; /*Boxarna kommer vara runda (50% radius) när boxarna är klara, så alltså från kvadrater till cirklar*/
+  } /*Slut på 100%*/
+} /*Slut på animationen*/
+
+@keyframes color { /*Bestämmer färgerna för bakgrunden med hjälp klassen "color" från tidigare kod*/
+0%   { background: #33CCCC; } /*Vid starten är färgen detta*/
+20%  { background: #33CC36; } /*Vid 20% är färgen detta*/
+40%  { background: #ffc7e1; } /*Vid 40% är färgen detta*/
+60%  { background: #8200fc; } /*Vid 60% är färgen detta*/
+80%  { background: #33CC36; } /*Vid 80% är färgen detta*/
+100% { background: #33CCCC; } /*Vid 100% är färgen detta och då börjar färgen vid 0%, allt detta sker under 50s*/
+} /*Slut på bakgrunds färgen*/
+
+/*Slut på bakgrunden*/

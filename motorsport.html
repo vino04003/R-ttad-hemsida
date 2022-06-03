@@ -1,0 +1,121 @@
+
+<!--Jag var tvungen att göra denna sida ganska fort så den är inte helt optimerad,
+jag har inte så mycket tid kvar så den ser ut som den gör, det viktiga är att den 
+har video, tabell och audio.-->
+
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Stilen på texten, tagen från google-->
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Stilen på texten, tagen från google-->
+      <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Lexend+Exa:wght@500&family=Yuji+Syuku&display=swap" rel="stylesheet"> <!--Stilen på texten, tagen från google-->
+    <link rel="stylesheet" href="motorsport.css" > <!--Länk till css dokumentet-->
+    <title>YES</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Innehåller det man ser-->
+
+  <!--Globala menyn-->
+    <nav class="buttons"> <!--Denna div är gjord för att kunna ge meny knapparna snygga detalier med hjälp av klassen "buttons"-->
+    <ul> <!--Listan för knapparna i globala menyn-->
+        <li><a href="index.html">Home</a></li> <!--"Home" knappen i globala menyn med en länk till index sidan (home page)-->
+        <li><a href="news.html">News</a></li> <!--"News" knappen i globala menyn med en länk till "News" sidan (news page)-->
+        <li><a href="funpage.html">Funpage</a></li> <!--"Funpage" knappen i globala menyn med en länk till "Funpage" sidan ( funpage)-->
+        <li><a href="motorsport.html">Motorsport</a></li> <!--"Motorsport" knappen i globala menyn med en länk till "Motorsport" sidan (motorsport page)-->
+        <li><a href="form.html">Form</a></li> <!--"Form" knappen i globala menyn med en länk till "Form" sidan (form page)-->
+      </ul><!--Slut på listan med knappar till globala menyn-->
+    </nav><!--Slut på diven som innehåller alla knappar med klassen "buttons"-->
+    <!--Slut på globala menyn-->
+
+    <main> <!--Huvudinnehållet-->
+    <div class="grid"> <!--Denna bestämmer hur layouten ska se ut genom grid layout, gäller på alla element inom denna div-->
+    <!--Början på bild formatet med Lewis och Michael-->
+    <div id="page"> <!--Detta är helheten, alltså elementet som kommer ge göra så att bild formatet är vid sin plats med id "#page"-->
+      <div class="wrapper"> <!--Detta kommer ge storlek och position med klassen ".wrapper"-->
+        <div class="before"> <!--Denna gör så att bilden "schum.jpg" får en plats som man bestämmer i css med hjälp av klassen ".before". I detta fall kommer denna vara framsidan--> 
+          <img class="content-image" src="schum.jpg" draggable="false" alt="Schumacher"/> <!--Bilden som kommer visas först, ger den klassen ".content-image"-->
+           </div> <!--Slut på diven med klassen ".before"-->
+        <div class="after"> <!--Detta är den andra bilden som kommer visas, i detta fall kommer bilden visas bakom/efter den första-->
+          <img class="content-image" src="lewis.jpg" draggable="false" alt="Lewis"/> <!--Själva bilden som kommer vara bakom den första, får också klasssen ".content-image"-->
+        </div> <!--Slut på diven med klassen ".after"-->
+        <div class="scroller"> <!--Denna klassen ska bestämma position, utseende på scrollern som är den runda i mitten som gör så man kan dra bilderna-->
+          <svg class="scroller__thumb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0 50 37 68 37 32 0 50" style="fill:#fff"/><polygon points="100 50 64 32 64 68 100 50" style="fill:#fff"/></svg> <!--Detta är pilarna som pekar mot vänster och höger-->
+        </div> <!--Slut på klassen ".scroller"-->
+      </div> <!--Slut diven med klassen ".wrapper"-->
+      </div> <!--Slut diven med id ".#page"-->
+      <!--Slut på bild formatet-->
+
+  <!--Början på videon-->
+  <div class="video"> <!--Bestämmer var videon kommer vara placerad med klassen ".video"-->
+    <iframe 
+    src="https://www.youtube.com/embed/ZJbRe0R6NyE" 
+    title="YouTube video player"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+     gyroscope; picture-in-picture" allowfullscreen class="iframe-video"></iframe> <!--Är videon med hjälp från Youtube, med en klass ".iframe-video"-->
+  </div> <!--Slut diven med klassen ".video"-->
+  <!--Slut på videon-->
+
+  <!--Början på audio-->
+  <div class="audio"> <!--kommer bestämma placeringen av audio med hjälp av klassen ".audio"-->
+    <iframe src="https://archive.org/embed/lp_relaxing_willie-the-lion-smith" 
+      allowfullscreen class="iframe-audio"></iframe> <!--Är ljudet, fick den från archive.org, med en klass ".iframe-audio"-->
+  </div> <!--Slut på diven med klassen ".audio"-->
+  <audio controls>
+    <source src="ljud.mp3" type="audio/ogg">
+    <source src="ljud.mp3" type="audio/mpeg">
+  </audio>
+
+  <!--Tabell-->
+  <div class="tabell"> <!--Denna kommer bestämma var tabellen kommer vara placerad-->
+    <table> <!--Detta är själva tabellen-->
+
+      <!--Detta kommer vara första raden vilket är th => thead => header -->
+      <tr class="header"> <!--Detta kommer vara första raden, "rubrikern"-->
+          <th scope="col" class="A"> <!--Detta är första "boxen" i första raden, klass ".A", jag använder "scope="col"" för att beskriva att denna är en header till namnen, th = thead-->
+              Name <!--Det som kommer stå i första "boxen" i första raden-->
+              <p>F1 best drivers</p> <!--Detta kommer stå under "Namn"-->
+          </th> <!--Slut på första "boxen" med klassen ".A"-->
+          <th scope="col" class="B"> <!--Detta är den andra "boxen" i första raden med klass ".B"-->
+              Age <!--Detta är det som står i andra "boxen" i första raden-->
+              <p>How old the drivers are</p> <!--Detta kommer stå under "Age"-->
+          </th> <!--Slut på andra "boxen" med klassen ".B"-->
+          <th scope="col" class="C"> <!--Detta är den tredje "boxen" i första raden med klass ".C"-->
+              Championship <!--Detta är det som står i tredje "boxen" i första raden-->
+              <p>How many wins they have</p> <!--Detta kommer stå under "Championship"-->
+          </th> <!--Slut på tredje "boxen" med klassen ".C"-->
+      </tr> <!--Slutet på första raden-->
+      <!--Slut på första raden med "rubrikerna"-->
+
+      <!--Detta kommer vara innehållet till "rubrikerna"-->
+      <!--Första columnen-->
+      <tr class="first-row"> <!--Detta är första raden under "rubrikerna", klassen ".första-raden" är för att man ska kunna färga första raden så man kan följa tabellen lättare-->
+          <td>Lewis Hamilton</td> <!--Detta det som står under "rubriken" "Namn" i tabellen, första columnen-->
+          <td>37 years</td> <!--Detta står under "rubriken" "Age", första columnen-->
+          <td>7 Wins</td> <!--Detta står under "rubriken" "Championship", första columnen-->
+      </tr> <!--Slut på elementet med klassen ".första-raden"-->
+      <!--Slut på första columen-->
+
+      <!--Andra columnen-->
+      <tr class="second-row"> <!--Detta är andra raden under "rubrikerna", klassen ".mitten-raden" är för att man ska kunna färga mitten raden-->
+          <td>Michael Schumacher</td> <!--Detta står under "rubriken" "Name", andra columnen-->
+          <td>53 years</td> <!--Detta står under "rubriken" "Age", andra columnen-->
+          <td>7 Wins</td> <!--Detta står under "rubriken" "Championship", andra columnen-->
+      </tr> <!--Slut på elementet med klassen ".mitten-raden"-->
+      <!--Slut på andra columen-->
+
+      <!--tredje columnen-->
+      <tr class="last-row"> <!--Detta är tredje raden under "rubrikerna", klassen ".sista-raden" är för att man ska kunna färga sista raden-->
+          <td>Juan Manuel Fangio</td> <!--Detta står under "rubriken" "Name", tredje columnen-->
+          <td>Died at 84 years</td> <!--Detta står under "rubriken" "Age", tredje columnen-->
+          <td>5 Wins</td> <!--Detta står under "rubriken" "Championship", tredje columnen-->
+      </tr> <!--Slut på elementet med klassen ".sista-raden"-->
+      <!--Slut på tredje columen-->
+  </table> <!--Slut på tabellen-->
+  </div> <!--Slut diven med klassen "tabell"-->
+</div> <!--Slut diven på layouten aka grid-->
+</main> <!--Slut på huvudinnehållet-->
+<script src="motorsport.js"></script> <!--Detta är länken till JavaScripten så att bild/scroll functionen funkar-->
+</body> <!--Slut på bodyn och allt innehåll-->
+</html> <!--Slut på sidan-->

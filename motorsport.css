@@ -1,0 +1,218 @@
+* { /*Grund settings på sidan, gör så det inte finns någo9n margin eller padding som kan störa designen*/
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+
+/*Globala menyn*/
+
+ul { /*Globala menyn*/
+text-align: center; /*Gör så att knapparna är centrerat*/
+background-color: #000000; /*Globala menyns backgrunds-färg*/
+}
+
+.buttons ul li { /*Positionerna på listans knappar*/
+    margin: 20px 10px; /*Hur bredd och hur stor höjden är*/
+    display: inline-block; /*Gör så att knapparna ligger horizontelt*/
+  }
+  .buttons ul li a { /*Lite fixering på animationen och knapparna/länkarna*/
+    text-decoration: none; /*Gör så att man inte ser att det är länkar*/
+    font-size: 40px; /*Storleken på texten*/
+    padding: 5px 15px; /*Tjockleken på animationen/backgrunden*/
+    color: rgb(255, 255, 255); /*Färg på text*/
+    border-radius: 50px; /*Hur runda kanter knapparna har*/
+    background: rgb(0, 0, 0); /*Backgrunden på knapparna, utan backgrund ser man bara animationen och text, denna bbackgrund gör så att det ser ut som att animationen går runt knapparna*/
+    position: relative; /*Gör så att animationen bakom knapparna håller sig i position när man hovrar*/
+    line-height: 50px; /*Hur stort mellanrum det är mellan knapparna*/
+    font-family: 'Iceland', cursive; /*Stilen på texten*/
+  }
+  
+  li > a { /*Denna är till för att bestämma alla <a> taggar innanför alla <li> taggar*/
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .buttons ul li a:after { /*Animationen på knapparna*/
+    position: absolute; /*Gör så att animationen på knapparna har samma följd och sitter på samma sätt som knapparna */
+    content: ""; /*Gör så att jag kan bygga animationen*/
+    background: linear-gradient(#14ffe9, #f2ff3f, #ff00e0); /*Färg kombinationen på animationen*/
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 104%; /*Bredden på animationen*/
+    height: 110%; /*Höjden på animationen, höjden och bredden ska vara lite större än knapparna för att man ska kunna se animationen*/
+    left: -2%; /*Position på animationen*/
+    top: -6%; /*Hur stor bordern med ringen är på topen*/
+    border-radius: 50px; /*Hur rund bordern är*/
+    transform: scaleX(0); /*Bestämmer hur border animationen ska öppnas, Y eller X led, i detta fall så börjar animationen från mitten och uu, i X-led*/
+    z-index: -2; /*Gör så att animationen håller sig bakom knapparna*/
+    animation: rotate 1.5s linear infinite; /*Animationens funktion, hur snabbt färgerna flyttar sig*/
+    transition: transform 0.3s ease; /*Hur snabbt animationen förflyttar sig när man hovrar på knapparna*/
+    
+  }
+  .buttons a:hover:after { /*Gör så att färgerna vissas när man hovrar*/
+    transform: scaleX(1); /*I vilken riktning färgerna ska färdas*/
+  }
+  .buttons a:hover { /*Hur knapparna/länkarna ska byta färg när man hovrar. Om man vill att de ska byta färg*/
+    color: rgb(2, 111, 161); /*Vilken färg texten har när man hovrar*/
+  }
+  
+  @keyframes rotate { /*Rotationen på färgerna*/
+    100%{
+      filter: hue-rotate(360deg); /*Färgerna roterar 360 grader, alltså runt och runt*/
+    }
+  }
+/*Slut på globala menyn*/
+
+.grid { /*Layouten för hela sidan*/
+  display: grid; /*Bestämmer vad som ska användas för att bestämma layouten, i detta fall är det grid. Denna är som en aktivering så att grid kan fungera.*/
+  grid-template-columns: repeat(4, 1fr); /*Bestämmer hur columnerna ska vara, hur stora och hur många columner det ska vara*/
+  grid-template-rows: repeat(4, 1fr); /*Bestämmer hur stora rows det ska vara och hur många rows*/
+  grid-column-gap: 20px; /*Detta är gep mellan columnerna alltså mellan rummet vertikalt för varje column*/
+}
+
+/*Början av bild formatet*/
+#page { /*Bestämmer hur bilden kommer vara*/
+    height: 100%; /*Använder hela höjden på sidan*/
+    width: 100%; /*Använder hela bredden på sidan*/
+    position: absolute; /*Gör så att bilden är fast när man byter bild*/
+    z-index: 1; /*Gör så bilden är ett lager fram*/
+  }
+
+  .wrapper { /*Bestämmer hur skalet ska se ut, alltså inte bilderna men det som bilderna ska vara i*/
+    width: 900px; /*Bredden på "skalet"*/ 
+    height: 600px; /*Höjden på "skalet"*/
+    position: relative; /*Gör så att "skalet" är på plats*/
+    left: 50%; /*Centrerar "skalet"*/
+    top: 50%; /*Centrerar "skalet"*/
+    transform: translate3d(-50%,-50%,0); /*Gör så att "skalet" är centrerat*/
+    overflow: hidden; /*Gör så att bilden inte är rörlig*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); /*Är "skalets" skugga*/
+    border-radius: 20px; /*Bestämmer hur runda kanter det ska vara*/
+    grid-area: 1 / 2 / 3 / 4; /*Vart "skalet" är placerad med hjälp av grid*/
+  }
+  
+  .before,
+  .after { /*Detta är bilderna och hur dem ska få plats i "skalet"*/
+    height: 100%; /*Använder hela höjden på sidan*/
+    width: 100%; /*Använder hela bredden på sidan*/
+    position: absolute; /*Gör så att bilderna flyttas när man drar, och inte bara visar en bild*/
+    pointer-events: none; /*Gör så att bilderna inte ragerar på pekarhändelser*/
+    overflow: hidden; /*Denna gör så att man kan se båda bilderna*/
+  }
+   
+  .content-image { /*Bildernas settings*/
+    height: 100%; /*Gör så att bilderna ser bra ut*/
+  }
+  
+  .scroller { /*Detta är den runda ringen med pilarna och dess settings*/
+    border-radius: 50%; /*Gör så att det blir en ring runt pilarna*/
+    width: 50px; /*Hur bredd ringen ska vara*/
+    height: 50px; /*Hur hög ringen ska vara*/
+    position: relative; /*Gör så att ringen är på plats*/
+    top: 50%; /*Gör så att ringen är i mitten av "linjen/pinnen"*/
+    transform: translateY(-50%); /*Gör så att ringen och linjen är centrerat*/
+    background-color: transparent; /*Gör så att ringen har en transparant bakgrund*/
+    opacity: 1; /*Gör så att man kan se linjerna och cirkeln*/
+    cursor: pointer; /*Gör så att man får "pointer" när man rör cirkeln eller linjerna*/
+    border: 5px solid #fff; /*Bordern runt ringen och dess färg*/
+  } 
+  
+  .scrolling { /*Detta är inte en klass i html utan en klass i motorsport.js*/
+    pointer-events: none; /*Gör så att bilderna inte ragerar på pekarhändelser*/
+    z-index: 1; /*Gör så att man kan röra och att linjerna/cirkeln fungerar när man drar över bilderna*/
+  }
+  
+  .scroller__thumb { /*Bestämmer hur pilarna ska vara*/
+    padding: 7px; /*Gör så att pilarna inte är så stora*/
+  }
+  
+  .scroller:before,
+  .scroller:after { /*Detta är själva linjena*/
+    content: ""; /*Ersätter element men man kan fortfarande bygga på det*/
+    width: 5px; /*Bredden på linjerna*/
+    height: 100vh; /*Höjden på linjerna, detta är inte hela sidan utan hela höjden av "skalet"*/
+    position: absolute; /*Gör så att linjerna är fast och inte försvinner när man rör dem eller drar för bilder*/ 
+    left: 50%; /*Centrerar linjerna så att de är perfekta*/
+    margin-left: -3.5px; /*Gör så att linjerna är på plats*/ 
+    background: rgb(255, 255, 255); /*Färgen på linjerna*/
+  }
+  .scroller:before { /*Linjerna*/
+    top: 100%; /*Gör så att linjerna inte går igenom cirkeln, utan denna går linjerna igenom cirkeln*/
+  }
+  .scroller:after { /*Linjerna*/
+    bottom: 100%; /*Gör så att linjerna är på båda sidorna, utan denna så är det bara linje påen sida*/
+  }
+  /*Slutet på bild formatet*/
+
+/*Video*/
+.video { /*Video settings*/ 
+  grid-area: 4 / 2 / 4 ; /*Var videon ska vara placerad med hjälp av grid*/
+  z-index: 1; /*Gör så att man kan kommer åt videon, annars ligger videon bakom en onsynligt lager*/
+}
+  .iframe-video { /*Detta är videon*/
+    width: 500px; /*Bestämmer videons bredd*/
+    height: 300px; /*Bestämmer videons höjd*/
+  }
+/*Slut på video*/
+
+/*Audio*/
+.audio { /*Audio settings*/
+  grid-area: 4 / 3 / 5 / 5; /*Var audion ska vara placerad med hjälp av grid*/
+  z-index: 1; /*Gör så att man kan kommer åt audion, annars ligger videon bakom en onsynligt lager*/
+}
+  .iframe-audio { /*Detta är audion*/
+    width: 550px; /*Bestämmer audions bredd*/
+    height: 35px; /*Bestämmer audions höjd*/
+  }
+audio { /*Ljud*/
+  z-index: 1; /*Position på ljudet*/
+}
+/*Slut på audio*/
+
+
+/*Tabellen*/
+.tabell { /*Tabellens settings*/
+  grid-area: 4 / 3 / 5 / 3; /*Var tabellen ska vara placerad med hjälp av grid*/
+  margin-top: 70px; /*mellanrummet mellan audion och tabellen*/
+}
+  p { /*All text under "rubrikerna"*/
+    font-size: 17px; /*Storleken på texten*/
+    padding-bottom: 5px; /*Mellanrummet mellan texten och botten*/
+  }
+
+  th { /*"Rubrikerna" för tabellen*/
+    font-size: 30px; /*"Rubrikernas" text storlek*/
+    padding-top: 10px; /*mellanrumet mellan "rubrikerna" och toppen*/
+  }
+
+table, td, tr, th { /*Alla element i tabellen*/
+  border: solid black 2px; /*Detta är borderna aka kanten/linjerna runt tabellen*/
+  width: 600px; /*Hur bredd tabellen ska vara*/
+  border-collapse: collapse; /*Gör så att det inte finns mellanrum mellan "boxarna"*/
+  font-family: 'Iceland', cursive; /*Stilen på texten*/
+  font-weight: bold; /*Gör så att texten är bold aka tjock*/
+  text-align: center; /*Gör så att all text är centrerat*/
+  height: 30px; /*Höjden på varje "box"*/
+}
+/*Slut på tabellen*/
+
+/*Färgerna på raderna i tabellen*/
+.header { /*Detta är "rubrikerna"*/
+  background-color: rgb(231, 149, 224); /*Bakgrunds-Färgen på "rubrikerna"*/
+}
+  .first-row { /*Detta är första raden*/
+    background-color: rgb(101, 236, 184); /*Bakgrunds-Färgen på första raden*/
+    color: rgb(0, 0, 0); /*Färgen på texten, första raden*/
+  }
+    .second-row { /*Detta är andra raden*/
+      background-color: rgb(202, 9, 9); /*Bakgrunds-Färgen på andra raden*/
+      color: black; /*Färgen på texten, andra raden*/
+    }
+      .last-row { /*Detta är sista raden*/
+        background-color: rgb(73, 148, 170); /*Bakgrunds-Färgen på sista raden*/
+        color: rgb(0, 0, 0); /*Färgen på texten, sista raden*/
+      }
+/*Slut på färger tyvärr :(*/
+
+    

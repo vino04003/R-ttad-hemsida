@@ -1,0 +1,74 @@
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Stilen på texten, tagen från google-->
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Stilen på texten, tagen från google-->
+      <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Lexend+Exa:wght@500&family=Yuji+Syuku&display=swap" rel="stylesheet"> <!--Stilen på texten, tagen från google-->
+    <link rel="stylesheet" href="style.css" > <!--Länk till css dokumentet-->
+    <title>Lets----go</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Information som visas för användaren-->
+
+  <!--Backgrunden börjar här-->
+  <div class="crap"> <!--Bestämmer hur backgrunden kommer vara-->
+    <div class="line-reveal line-a"> <!--Bestämmer linjerna grund uppbyggnad med klassen "line-reveal" och sedan en till klass "line-x" för vilken linje det är-->
+      <div class="overlay"></div> <!--Bestämmer Animationen och stylar linjerna/backgrunden.-->
+    </div> <!--Slut på linje a-->
+    <div class="line-reveal line-b"> <!--Bestämmer linjerna grund uppbyggnad med klassen "line-reveal" och sedan en till klass "line-x" för vilken linje det är-->
+      <div class="overlay"></div> <!--Bestämmer Animationen och stylar linjerna/backgrunden.-->
+    </div> <!--Slut på linje b-->  
+    <div class="line-reveal line-c"> <!--Bestämmer linjerna grund uppbyggnad med klassen "line-reveal" och sedan en till klass "line-x" för vilken linje det är-->
+      <div class="overlay"></div> <!--Bestämmer Animationen och stylar linjerna/backgrunden.-->
+    </div> <!--Slut på linje c-->
+    <div class="line-reveal line-d"> <!--Bestämmer linjerna grund uppbyggnad med klassen "line-reveal" och sedan en till klass "line-x" för vilken linje det är-->
+      <div class="overlay"></div> <!--Bestämmer Animationen och stylar linjerna/backgrunden.-->
+    </div> <!--Slut på linje d-->
+  </div> <!--Slut diven med id "#crap"-->
+<!--Slut på backgrunden här-->
+
+<!--Intro texten börjar här-->
+<div class="container"> <!--Container till intro texten-->
+  <h1>Hey, stranger this page is about</h1> <!--Texten som används i början, är även "nth-child(1)" i CSS-->
+  <h2>Motorsport</h2> <!--Texten som används i början, är även "nth-child(2)" i CSS-->
+</div> <!--Slut på Container div och intro texten-->
+
+<!--Början av "EXPLORE" knappen här-->
+<div class="wrap"> <!--Bestämmer grunderna för knappen-->
+  <a href="#menu" class="button"> <!--Länk till knappen så knappen fungerar, länkar till listan och själva knappen, allt med style av knapp görs via klassen "button"-->
+    EXPLORE <!--Texten på knappen-->
+  </a> <!--Slut av länk till knapp. Knappen är nu länkad till listan-->
+</div> <!--Slut av grunderna-->
+<!--Slut av "EXPLORE" knappen här-->
+
+<!--Början av menyn och knapparna-->
+<main> <!--Detta är huvud innehållet-->
+  <div class="popover" id="menu"> <!--Använder en class för att hålla ihop allt och ett id för att "EXPLOLRE" knappen ska kunna länka till något / gör så att knappen fungerar-->
+    <div class ="content"> <!--Skapar en till class så menyn kan bli helt klar, med animation, stil osv-->
+     <a href="#" class="close"></a> <!--Detta är tillför att kunna stänga menyn och denna har en class för att kunna lägga till lite snygga detalier-->
+      <nav class="wrapper"> <!--Denna div är gjord för att kunna ge meny knapparna snygga detalier med hjälp av klassen "wrapper"-->
+        <ul class="nav_list"> <!--Denna div är själva listan, "unorderdlist" vilket kommer få en complete makeover. Med hjälp av klassen "nav_list" så kommer knapparna kunna göra olika saker när menyn öppnar-->
+        <li class="nav_list_item"> <!--Lista kopplad till "Home", en class som alla knappar i listan har, denna är till för att få knapparna att synas mm, denmna är kopplad till "Home"-->
+          <a href="#">Home</a> <!--Länk i listan så man kan ta sig till andra sidor, aka en knapp med namnet "Home"-->
+        </li> <!--Slut tagen av listan kopplad till "Home" och klassen "nav_list_item" kopplad till "Home"-->
+          <li class="nav_list_item"> <!--Lista kopplad till "News" och Listans gemensamma class, denna är kopplad till "News"-->
+            <a href="news.html">News</a> <!--Länk i listan så man kan ta sig till andra sidor, aka en knapp med namnet "News"-->
+          </li> <!--Slut tagen av listan kopplad till "News" och klassen "nav_list_item" kopplad till "News"-->
+          <li class="nav_list_item"> <!--Lista kopplad till "Funpage" och Listans gemensamma class, denna är kopplad till "Funpage"-->
+            <a href="funpage.html">Funpage</a> <!--Länk i listan så man kan ta sig till andra sidor, aka en knapp med namnet "Funpage"-->
+          </li> <!--Slut tagen av listan kopplad till "Funpage" och klassen "nav_list_item" kopplad till "Funpage"-->
+          <li class="nav_list_item"> <!--Lista kopplad till "Motorsport" och Listans gemensamma class, denna är kopplad till "Motorsport"-->
+            <a href="motorsport.html">Motorsport</a> <!--Länk i listan så man kan ta sig till andra sidor, aka en knapp med namnet "Motorsport"-->
+          </li> <!--Slut tagen av listan kopplad till "Motorsport" och klassen "nav_list_item" kopplad till "Motorsport"-->
+          <li class="nav_list_item"> <!--Lista kopplad till "Form" och Listans gemensamma class, denna är kopplad till "Form"-->
+            <a href="form.html">Form</a> <!--Länk i listan så man kan ta sig till andra sidor, aka en knapp med namnet "Form"-->
+          </li> <!--Slut tagen av listan kopplad till "Form" och klassen "nav_list_item" kopplad till "Form"-->
+      </ul> <!--Slutet av hela listan, med class "nav_list"-->
+    </nav> <!--Slut diven på den detalj-rika klassen "wrapper" som gör knapparna lite stiligare-->
+  </div> <!--Slut diven på "content" klassen-->
+</div> <!--Slut diven på klassen som knyter ihop hela säcken, "popover" och "#menu"-->
+</main> <!--Slut på huvud innehållet-->
+</body> <!---->
+</html> <!---->

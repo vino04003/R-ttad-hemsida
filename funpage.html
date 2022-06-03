@@ -1,0 +1,56 @@
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Stilen på texten, tagen från google-->
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Stilen på texten, tagen från google-->
+      <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Lexend+Exa:wght@500&family=Yuji+Syuku&display=swap" rel="stylesheet"> <!--Stilen på texten, tagen från google-->
+    <link rel="stylesheet" href="funpage.css" > <!--Länk till css dokumentet-->
+    <title>Funpage</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Innehåller det man ser-->
+
+  <!--Globala menyn-->
+  <nav class="buttons"> <!--Denna div är gjord för att kunna ge meny knapparna snygga detalier med hjälp av klassen "buttons"-->
+    <ul> <!--Listan för knapparna i globala menyn-->
+        <li><a href="index.html">Home</a></li> <!--"Home" knappen i globala menyn med en länk till index sidan (home page)-->
+        <li><a href="news.html">News</a></li> <!--"News" knappen i globala menyn med en länk till "News" sidan (news page)-->
+        <li><a href="funpage.html">Funpage</a></li> <!--"Funpage" knappen i globala menyn med en länk till "Funpage" sidan ( funpage)-->
+        <li><a href="motorsport.html">Motorsport</a></li> <!--"Motorsport" knappen i globala menyn med en länk till "Motorsport" sidan (motorsport page)-->
+        <li><a href="form.html">Form</a></li> <!--"Form" knappen i globala menyn med en länk till "Form" sidan (form page)-->
+      </ul><!--Slut på listan med knappar till globala menyn-->
+    </nav><!--Slut på diven som innehåller alla knappar med klassen "buttons"-->
+    <!--Slut på globala menyn-->
+
+<!--Memory spelets pjäser och text-->
+<main> <!--Detta är huvud innehållet-->
+  <div class="container"> <!--Denna div kommer få allt på sin plats-->
+    <p>*Game is under construction</p> <!--Text som förklarar att spelet inte är klart-->
+      <h1>Lives: <span class="playerLivesCount"></span></h1> <!--Detta är spelarens liv och "span" är länkad till JavaScript så vi får våra liv därifrån-->
+    <section></section> <!--Denna kommer generara spelet med hjälp av JavaScript, i denna "section" kommer vi generera olika "divs" som kommer vara korten-->
+</main> <!--Slut på huvud innehållet-->
+<!--Slut på spelet-->
+
+<!--Bakgrunden på spelet-->
+<div class="area"> <!--Detta är bakgrundens area, vart bakgrunden ska vara placerad-->
+  <ol class="circles"> <!--Denna lista kommer bestämma hur "li" elementen i bakgrunden kommer se ut och storlek osv-->
+    <li></li> <!--Bakgrunds box x1-->
+    <li></li> <!--Bakgrunds box x2-->
+    <li></li> <!--Bakgrunds box x3-->
+    <li></li> <!--Bakgrunds box x4-->
+    <li></li> <!--Bakgrunds box x5-->
+    <li></li> <!--Bakgrunds box x6-->
+    <li></li> <!--Bakgrunds box x7-->
+    <li></li> <!--Bakgrunds box x8-->
+    <li></li> <!--Bakgrunds box x9-->
+    <li></li> <!--Bakgrunds box x10-->
+  </ol> <!--Slut på listan med klassen ".circles"-->
+</div> <!--Slut på diven med klassen ".area"--> 
+<!--Slut på bakgrunden till spelet-->
+    </div> <!--Slut diven på ".container"-->
+    <!--Slut på spelet-->
+    <script src="/app.js"></script> <!--Länk till JavaScript där det mesta sker med spelet-->
+  </body> <!--Slut på bodyn och allt innehåll-->
+</html> <!--Slut på sidan-->

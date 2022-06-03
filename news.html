@@ -1,0 +1,108 @@
+
+<!--Jag var tvungen att göra denna ganska fort för tiden ran iväg så den kanske inte blev så snygg
+men det viktiga är att jag fick med header, main, footer delarna.-->
+
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Stilen på texten, tagen från google-->
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Stilen på texten, tagen från google-->
+      <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Lexend+Exa:wght@500&family=Yuji+Syuku&display=swap" rel="stylesheet"> <!--Stilen på texten, tagen från google-->
+    <link rel="stylesheet" href="news.css" > <!--Länk till css dokumentet-->
+    <title>YES</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Innehåller det man ser-->
+
+    <!--Globala menyn-->
+    <nav class="buttons"> <!--Denna div är gjord för att kunna ge meny knapparna snygga detalier med hjälp av klassen "buttons"-->
+    <ul> <!--Listan för knapparna i globala menyn-->
+        <li><a href="index.html">Home</a></li> <!--"Home" knappen i globala menyn med en länk till index sidan (home page)-->
+        <li><a href="news.html">News</a></li> <!--"News" knappen i globala menyn med en länk till "News" sidan (news page)-->
+        <li><a href="funpage.html">Funpage</a></li> <!--"Funpage" knappen i globala menyn med en länk till "Funpage" sidan ( funpage)-->
+        <li><a href="motorsport.html">Motorsport</a></li> <!--"Motorsport" knappen i globala menyn med en länk till "Motorsport" sidan (motorsport page)-->
+        <li><a href="form.html">Form</a></li> <!--"Form" knappen i globala menyn med en länk till "Form" sidan (form page)-->
+      </ul><!--Slut på listan med knappar till globala menyn-->
+    </nav><!--Slut på diven som innehåller alla knappar med klassen "buttons"-->
+    <!--Slut på globala menyn-->
+
+    <div class="grid"> <!--Denna bestämmer hur layouten ska se ut genom grid layout, gäller på alla element inom denna div-->
+
+        <!--Rubriken aka header-->
+        <header class="header"> <!--Detta är informationen som är högst upp i sidan aka rubriken, är under globala menyn--> 
+            <h1>Det är över för <span>Motorsporten!!</span></h1> <!--Rubriken på sidan/nyheterna med ett span element för att förstärka ordet "Motorsport"-->
+        </header> <!--Slut tagen på rubriken-->
+        <!--Slut på rubriken-->
+
+        <!--Main vilket är rubriken -->
+        <main class="main"> <!--Denna är huvud delen på sidan alltså main content med klassen main, i denna finns huvud-artikeln som är den del som tar störst del av sidan--> 
+            <article> <!--I denna finns artikeln med elementet "article" vilket man borde fatta varför det är en "article" tag här.-->
+                <img src="bilder/sad.gif" alt="Very sad image"> <!--Detta är bilden/gifen för artikeln-->
+                <br> <!--Break, gör så det är mellanrum mellan gifen och "h2" rubriken, underlättar istälelt för att göra det i css-->
+                <br> <!--Break x2-->
+                <h2>F1 kommer lägga ner efter 2022 säsongen</h2> <!--Rubriken för artikeln-->
+                <br> <!--Break, mellanrum mellan rubriken och texten/innehållet-->
+                <p> <!--Artikeln, texten som har allt innehåll och är själva artikeln-->
+                    Enligt uppgifter som <span>supernyheter</span> har fått in så är det klart att motorsporten <span>Formula 1</span> <!--Text med elemnten "span" för att förstärka några ord-->
+                    2023/24 säsong inte kommer att äga rum. 
+                    <br> <!--Break, mellanrum så det ser lite bättre ut och är lättare att läsa-->
+                    Detta är pågrund av alla problem som Mercedes hade under 2022 säsongen.
+                    F1 supportrarna är väldigt upprörda och bedrövade över detta beslut. <span>Olof Olofsson</span> från F1 Kommittén sa detta under en intervju med <span>supernyheterna</span>. <!--Text med elemnten "span" för att förstärka några ord-->
+                    <br> <!--Break, mellanrum så det ser lite bättre ut och är lättare att läsa-->
+                    - Det är så fruktansvärt tråkigt att det ska bli såhär. Vi i Kommittén hade det väldigt under denna tid, men vi behövde göra det som krävdes för att göra det så likställt som möjligt på banan. Säger <span>Olof Olofsson</span>, svennen i F1 Kommittén.
+                </p> <!--Slut på första delen av artikeln-->
+                <br> <!--Break, mellanrum till nästa del av artikelns innehåll-->
+                    <p> <!--Andra delen av artikeln -->
+                        Det Olof refererar till är att Mercedes inte hade lika jämn bil som de andra stallen  i Formula 1, de vill skapa en så lik uppställning så att <span>Lewis Hamilton</span> kan ta sitt åttionde mästerskap och skriva historia.
+                        Formula 1 supportrarna är väl medvetna om att Lewis och Michael Schumacher (fd 7 faldiga världs mästare) har lika många mästerskap. Många supportrar vill att Lewis ska skriva historia för ingen gillar Michael.
+                        De tycker att "han är en förjävlig förare och hade sjukt mycket tur under sina år, korruption var en stor del av F1", antyder supportrarna som vi har intervjuvat. 
+                        Så det blir tyvärr ingen 2023/24 säsong. 
+                    </p> <!--Slut på andra delen av artikelns innehåll-->
+                    <br> <!--Break, mellan artikel och länk-->
+                    <a href="http://www.staggeringbeauty.com/">Akta ögonen</a> <!--Ingen mening för denna länk, enbart till LoVe Focus HAte, med en länk-->
+                    <br>
+                    <a href="#">Tom länk</a> <!--Ingen mening för denna länk, enbart till LoVe Focus HAte, utan en länk-->
+            </article> <!--Slut på hela artikeln-->
+        </main> <!--Slut på huvud delen av sidan-->
+        <!--Slut på main aka artikeln-->
+
+        <!--Nav vilket kommer vara insändaren-->
+        <nav class="navbar-1"> <!--Detta är den vänstra delen av hemsidan, ska vara en typ av insändare, denna tar inte så stor del-->
+            <img src="bilder/angry.gif" alt="Angry gif"> <!--Detta är bilden på insändaren-->
+            <br> <!--Break, mellanrum mellan bilden och insändarens innehåll-->
+            <br> <!--Break x2-->
+            <h2>Jag ORKAR inte mer!!</h2> <!--Rubriken på insändaren-->
+            <br> <!--Break x3-->
+            <p>Hej, jag heter Iók Fredriksson och jag vill gärna vara anonym.</p> <!--Första delen av insändaren-->
+            <p> <!--Början på innehållet av andra delen i insändaren-->
+                Jag är så jävla förbannad på hur de rika männen ska bestämma hur saker och ting ska ske. Få aldrig vi som supportrar sporten få bestämma. Varför sker allt bakom stängda dörrar. 
+                Det är vi människor som gör att alla stall (lag) kan tjäna pengar. Det är vi som går och kollar på alla race, det är vi som drar in pengar till alla företag genom att 
+                köpa deras varor osv. Ni som läser fattar säkert vad jag menar. Hur kan vi som fans bara låta F1 Kommittén göra dessa val. Jag skulle dock aldrig låta någon annan än Lewis vinna.
+                Han förtjänar att komma 1:a igen. Tills han slutar. Ingen är som Lewis, ingen kan göra det Lewis har gjort. Det kommer inte ske igen, tro mig. Låt Lewis vinna. 
+                <br> <!--Break x4-->
+                // MVH Iók F 
+            </p> <!--Slut på innehållet av andra delen av insändaren-->
+        </nav> <!--Slut på insändaren-->
+        <!--Slut på insändaren-->
+
+        <!--nav 2 vilket är reklmen-->
+        <nav class="navbar-2"> <!--Detta är den högra delen av hemsidan, denna tar inte heller så stor del, detta ska vara "reklamen"-->
+            <a href="http://eelslap.com/"> <!--Detta är länken bakom reklamen (man ken ej se), den skickar dig till en rolig hemsida-->
+                <img src="bilder/reklam3.jpg" alt="Coca Cola reklam"> <!--Detta är reklamen, det man kan se-->
+            </a> <!--Slut på länken, hela reklamen är nu en dold länk till den roliga hemsidan-->
+        </nav> <!--Slut på reklam delen-->
+        <!--Slut på reklamen-->
+
+        <!--Footer vilken är delen längst ner på sidan-->
+        <footer class="footer"> <!--Detta är en footer och är längst ner på sidan-->
+            <h2>Du hittar oss på</h2> <!--Första delan av texten i footer, denna är en "h2" element för att få en lite större text-->
+            <h3>www.supernyheter.se</h3> <!--Andra delen av texten i footer, denna är en "h3" element för att få en lite mindre text jämfört med "h2"-->
+            <p>Tack och välkommen åter!!</p> <!--Detta är den sista delen av footer's information, denna är en vanlig "p" tag och är den minsta delen av alla texter-->
+        </footer> <!--Slut på footer-->
+        <!--Slutet av footer-->
+
+        </div> <!--Slut diven på layouten aka grid-->
+</body> <!--Slut på bodyn och allt innehåll-->
+</html> <!--Slut på sidan-->

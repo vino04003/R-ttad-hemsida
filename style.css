@@ -1,0 +1,391 @@
+* { /*Orginal settings på sidan*/
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000000; /*Bakgrunds färgen på hela sidan*/
+}
+
+
+/*Background*/
+.crap { /*Bestämmer hur backgrunden kommer vara, aka chassit*/
+  overflow: hidden;  /*Förhindrar att man inte kan scrolla*/
+  position: absolute; /*Denna gör så att sidan är fast så man inte kan röra sig på den*/
+  top: 0; /*Detta element är kopplat till Position. absolute; och göra att elementet placerar sig från toppen*/
+  left: 0; /*Gör så att backgrunds linjerna håller sig till kanterna*/
+  height: 100%; /*Använder hela höjden på sidan*/
+  width: 100%; /*Använder hela bredden på sidan*/
+}
+
+
+.line-reveal { /*Bestämmer hur linjerna ska gå, aka motorn*/
+  width: 130%; /*Denna bestämmer hur långt linjerna ska färdas*/
+  height: 3px; /*Linjernas bredd storlek*/
+  overflow: hidden; /*Förhindrar att "scrollbar" visas*/
+  position: absolute; /*Denna gör så att linjerna är fast*/
+}
+
+  .overlay { /*"Fadern" till linjerna, bestämer hur det ska se ut, röra sig osv, aka Inredningen*/
+    background: #f80000; /*Backgrunds färgen på linjerna*/
+    height: 10px; /*Specifierar höjden av innehålletområdet*/
+    top: -5px; /*Beskriver var linjerna börjar*/
+    transform-origin: 100% 0; /*Denna avgör hur linjernas position ska vara*/
+    animation: wipe 5s ease; /*Är själva animationens rörelse*/
+    animation-iteration-count:infinite; /*Detta element avgör hur många gånger animationen spelas*/
+    animation-direction: alternate; /*Definerar om animationen ska spelas baklänges eller i andra alternativ, utan denna så spelas animationerna bara åt ett håll*/
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000); /*Bestämmer hur animationen på linjerna ska utspelas under en "omgång"*/
+    /*animation-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);*/
+  }
+
+.line-a { /*Linjernas identitet, aka Hjulen*/
+  top: 60%; /*Hur långt linjen är från toppen*/
+  left: -5px; /*Avståndet mellan linjens vänstra kant och vänsterkanten av linjens "fader"*/
+  transform-origin: 0 0; /*Denna avgör hur linjernas position ska vara*/
+  transform: rotate(-50deg); /*Linjens vinkel*/
+}
+ 
+.line-b { /*Linjernas identitet, aka Hjulen*/
+  left: -5px; /*Avståndet mellan linjens vänstra kant och vänsterkanten av linjens "fader"*/
+  bottom: 10%; /*Hur långt linjen är från botten*/
+  transform-origin: 0 0; /*Denna avgör hur linjernas position ska vara*/
+  transform: rotate(-5deg); /*Linjens vinkel*/
+}
+
+.line-c { /*Linjernas identitet, aka Hjulen*/
+  right: 10%; /*Avståndet mellan linjens högra kant och högerkanten av linjens "fader"*/
+  bottom: -3px; /*Hur långt linjen är från botten*/
+  transform-origin: 100% 0; /*Denna avgör hur linjernas position ska vara*/
+  transform: rotate(70deg); /*Linjens vinkel*/
+}
+
+.line-d { /*Linjernas identitet, aka Hjulen*/
+  left: -20%; /*Avståndet mellan linjens vänstra kant och vänsterkanten av linjens "fader"*/
+  top: 30%; /*Hur långt linjen är från toppen*/
+  transform-origin: 30%; /*Denna avgör hur linjernas position ska vara*/
+  transform: rotate(50deg); /*Linjens vinkel*/
+}
+
+
+@keyframes wipe {
+  to {
+    transform: scaleX(0); /*"Aktiverar linjernas animation, aka Vridmomentet*/
+  }
+}
+
+/*Slut på backgrund*/
+
+
+
+
+/*Början på texten i början*/
+
+.container {
+  width: 100%; /*Gör så texten är den samma som sidans storlek*/
+  text-align: center; /*Gör så texten är centrerad*/
+  margin: auto; /*Bestämmer avståndet från topen till texten.*/
+  margin-top: 200px;
+  position: relative;
+}
+
+.container h1:nth-child(1) {
+  color: #ffffff; /*Färgen på texten*/
+  font-family: 'Iceland', cursive; /*Bestämmer stilen på texten*/
+  font-weight: 800; /*Bestämmer hur tjock texten är*/
+  font-size: 30px; /*Text storleken*/
+  margin: 0 0 0 25%; /*Används för att bestämma hur första text delen ska vara placerad*/
+  white-space: nowrap; /*Bestämmer hur texten ska skrivas,  i detta fall skrivs den ut horizontellt, utan denna skulle allt vara vertikalt och sedan skrivas horizontellt*/
+  overflow: hidden; /*Gör så att man inte kan se texten tills den skrivs ut*/
+  width: 375px; /*Denna bestämmer hur mycket utrymme texten har att skrivas ut på*/ 
+  animation: type 3s steps(40,end) forwards; /*Är textens animation, 3s för att texten ska vara klar, den går framåt (alltså åt sidan, från vänster till höger), type är "klassen" till keyframes där animationen görs, i det här fallet är det den vita kvadraten som skriver ut texten*/
+  margin-bottom: 50px; /*Avståndet från "Motorsport" texten*/
+
+}
+
+.container h2:nth-child(2) {
+  opacity: 0; /*Gör så att texten "Motorsport" inte syns innan den skrivs ut, alltså så gör 0 att den är transparent*/
+  font-family: 'Iceland', cursive; /*Bestämmer stilen på texten*/
+  margin: 0 auto auto auto; /*Används för att bestämma hur första text delen ska vara placerad*/
+  color: #ffffff; /*Färgen på texten*/
+  font-weight: 800; /*Bestämmer hur tjock texten är*/
+  font-size: 130px;  /*Text storleken*/
+  width: 590px; /*Denna bestämmer hur mycket utrymme texten har att skrivas ut på*/ 
+  overflow: hidden; /*Gör så att man inte kan se texten tills den skrivs ut*/
+  animation: shring-animation 2.2s steps(20,end) 3.2s forwards, blink .5s step-end infinite alternate; /*är textens animation, 3.2s för att texten ska vara klar, den går framåt (alltså åt sidan, från vänster till höger), blink gör så den vita stapeln blinkar varje 0.5s i en evighet. Har samt "klasser" till keyframes.*/
+}
+
+
+@keyframes shring-animation { /*Bestämmer hur den vita "stapeln" ska utföras och se ut, hur den bli lite större och ändrar färg medans den skriver ut. 1% = början, 100% = slutet, denna är för "Motorsport"*/
+  0% {
+    opacity: 0; /*Man kan inte se innan animationen börjar*/
+    width: 0; /*Gör så att animationen startar vid 0, alltså inget*/
+  }
+  1% {
+    opacity: 1; /*Gör så att "stapeln" syns*/
+    border-right: 1px solid #ad1212; /*Färg vid 1%*/
+  }
+  50% {
+    opacity: 1; /*Gör så att "stapeln" syns*/
+    border-right: 2px solid #001fa8; /*Färg vid 50%*/
+  }
+  100% {
+    opacity: 1; /*Gör så "stapeln" syns*/
+    border-right: 3px solid #f1f1f1; /*Färg vid 100%*/
+  }
+}
+
+@keyframes type { /*Gör exakt samma som "shring-animation" fasat för texten över "Motorsport", ganska casual animation*/
+  0% {
+    width: 0; /*Gör så att den inte startar innan det är dags*/
+  }
+  1%, 99%{
+    border-right: 5px solid rgb(255, 255, 255); /*Färg vid 1 till 99%*/
+  }
+  100%{
+    border-right: none; /*Gör så att "stapeln" försvinner när skrivningen är klar*/
+  }
+}
+
+@keyframes blink { /*Bestämmer hur "stapeln" till "Motorsport" ska se ut när den blinkar*/
+  50% {
+    border-color: transparent; /*Göra så att färgen är transparent när den blinkar, den visar bara färg i 0.5s  och är onsynlig i 0.5s*/
+  }
+}
+
+/*Slut på texten*/
+
+
+
+
+
+/* Knapp för att gå vidare*/
+
+.wrap { /*Knappens grunder, vart den ska vara osv, aka pizzadegen*/
+  height: 100%; /*Använder hela höjden på sidan*/
+  display: flex; /*Denna är effektiv om du vill placera eller justera ett element, denna hittar plats att vara*/
+  align-items: center; /*Centrerar knappen*/
+  justify-content: center; /*Centrerar också knappen men skillnaden från "align" är att "justify (center)" centrerar Horizontellt medans "align (center)" är vertikalt*/
+  margin-top: 90px; /*Hur långt ifrån knappen är från botten närmaste container, i detta fall Intro textens container*/
+}
+
+.button { /*Knappens klass, här pimpar vi knappen*/
+  min-width: 300px; /*Hur bredd knappen ska vara*/
+  min-height: 60px; /*knappens höjd*/
+  font-family: 'Iceland', cursive; /*Text stilen på knappen, EXPLORE*/
+  font-size: 30px; /*Hur stor "EXPLORE" texten ska vara*/
+  text-transform: uppercase; /*Betyder att texten ska vara "CAPS" helatiden*/
+  text-align: center; /*Centrerar texten*/
+  text-decoration: none; /*Gör så att texten inte har någon deceration*/
+  letter-spacing: 1.3px; /*Mellanrummet mellan bokstäverna*/
+  font-weight: 700; /*Hur "tjock" texten ska vara*/
+  color: #ffffff; /*Färgen på texten*/
+  background: linear-gradient(90deg, #E10013 0%, #1014ff 100%); /*Färgen på knappen utan att röra den*/
+  border: none; /*Ingen border*/
+  border-radius: 100px; /*Bestämmer hur runda kanter jag har*/
+  box-shadow: 5px 5px 30px #1014ff; /*Knappens skugga som vi ser utan att röra knappen*/
+  transition: all 0.3s ease-in-out; /*Knappens animation när man "Hover" över den. Den förflyttas uppåt under 0.3s*/
+  cursor: pointer; /*Det betyder att mussen man får en pointer när man är på knappen*/
+  position: relative; /*Knappen är placerad i förhållande till sin normala position*/
+  }
+
+.button::before { /*Är "skalet" runt knappen när man "Hover" knappen*/
+  content: ''; /*Jag använder "content" så jag kan skapa "skalet" runt knappen*/
+  border-radius: 100px; /*Hur runda kanter "skalet" har*/ 
+  min-width: calc(300px + 12px); /*Använder denna för att ha lite mellanrum mellan knappen och "skalet". Det är samma ursprungs bredd som knappen fast med lite extra mellanrum.*/
+  min-height: calc(60px + 12px); /*Samma som bredden fast vid höjden istället*/
+  border: 6px double #1014ff; /*Färgen på "skalet"*/
+  box-shadow: 0 0 60px #1014ff; /*Skugan när man "hover" knappen*/
+  position: absolute; /*Gör att "skalet" är vid sin plats hela tiden*/
+  top: 50%; /*Använder 50% för att centrera knappens "skal"*/
+  left: 50%; /*Använder också denna för att centrera knappens "skal"*/
+  transform: translate(-50%, -50%); /**/
+  opacity: 0; /*Jag använder "opacity" för att inte alltid visa "skalet", utan bara när jag "hovrar" över knappen.*/
+  transition: all .5s ease-in-out ; /*Detta bestämmer hur lång tid animationen för "skalet" ska ta*/
+}
+
+.button:hover, .button:focus { /*Focus och hover bestämmer vad knappen ska göra när man hovrar över den*/
+  color: #fefffe; /*Färgen på texten när man hovrar*/
+  transform: translateY(-10px); /*Knappens transition*/
+}
+
+.button:hover::before, .button:focus::before { /*Vad som händer med "skalet" när man hovrar*/
+  opacity: 1; /*Gör så att man ser "skalet"*/
+} 
+
+.button::after { /*Är ringen bakom knappen*/
+  content: ''; /*Gör det lättare att skapa ringen*/
+  border-radius: 100%; /*Gör ringen rund*/
+  border: 3px double #E10013; /*Bordern/kanten runt ringen*/
+  position: absolute; /*Gör så att ringen inte rör sig*/
+  background: linear-gradient(90deg, #E10013 0%, #1014ff 100%); /*Färgen på ringen*/
+  z-index: -1; /*Gör så att ringen håller sig bakom knappen*/
+  top: 50%; /*Använder 50% för att centrera knappens "ring"*/
+  left: 50%; /*Använder också denna för att centrera knappens "ring"*/
+  transform: translate(-50%, -50%); /*Gör så att ringen rör sig centrerat ut mot kanten*/
+  animation: ring 2s ease infinite; /*Knappens animation, "ease" gör så animationen blir "smooth" */
+}
+
+.button:hover::after, .button:focus::after { /*Vad som händer med "ringen" när man hovrar*/
+  animation: none; /*Gör så att ringens animation stannar*/
+  display: none; /*Gör så att ringen inte syns när man hovrar*/
+}
+
+@keyframes ring { /*Ringens settings på animationen*/
+  0% {
+    width: 1px; /*Hur bred den är vid början*/
+    height: 1px; /*Hur hög den är vid början*/
+    opacity: 1; /*Att ringen syns*/
+  }
+  100% {
+    width: 220px; /*Hur bred den är vid 100%, aka max bredd*/
+    height: 220px; /*Max höjden vid 100%*/
+    opacity: 0; /*Att ringen försvinner och börjar om från 0%*/
+  }
+}
+/* slutet på Knapp för att gå vidare*/
+
+
+
+
+/*Listan med knapparna och menyn*/
+
+.popover { /*Menyns grund settings när menyn inte är aktiv*/
+ display: none; /*Gör så att inte menyn syns utan att vara aktiv, aka targeted*/
+}
+
+.popover:target { /*Menyns settings när den öppnas*/
+position: absolute; /*Denna gör så att menyn är fast så den inte försvinner*/
+top: 0; /*Gör så att sidan är fast och inte rör sig från top, denna jobbar med "position: absolute;"*/
+width: 100%; /*Att menyn använder hela bredden*/
+height: 100%; /*Att menyn använder hela höjden*/
+display: flex; /*Denna är effektiv om du vill placera eller justera ett element, denna hittar plats att vara.*/
+align-items: center; /*Centrerar menyn*/
+justify-content: center; /*Centrerar menyn*/
+
+}
+
+.popover .content { /*Menyn och knapparna får sin grund stil här*/
+position: relative; /*Gör så alla element är innanför menyn*/
+width: 0; /*Gör så att bredden börjar på noll och inte är "hel 100%" när man vill till menyn*/
+height: 0; /*Gör så att höjden börjar på noll och inte är "hel 100%" när man vill till menyn*/
+background-color: #000000; /*Menyns backgrund*/
+animation: 1s grow ease forwards; /*Menyns animation när man vill till menyn, den börjar litet och blir större på 1s, därför har man Width & Height på 0*/
+text-align: center; /*Gör så att texten är centrerad*/
+border: 2px solid white; /*Gör så att menyn  har en vit linje runt menyn*/
+border-radius: 30px; /*Gör så att menyn får runda kanter*/
+}
+
+.nav_list_item { /*Class för alla knappar i listan*/
+height: 90%;
+max-height: 100px; /*Utnyttjar hela höjden på menyn*/
+overflow: hidden; /*Gör så att knapparna är inte syns när menyn inte är öppen*/
+}
+
+.nav_list li { /*Class för hur knapparna ska agera när menyn öppnar*/
+padding: 20px;
+text-transform: uppercase; /*Gör så knapparna är "CAPS" hela tiden*/
+transform: translateY(200px); /*Bestämmer hur många px knapparna ska färdas i Y-led*/
+opacity: 0; /*Gör så att man inte kan se knapparna innan animationen är klar*/
+animation: 2s slideUp ease forwards .5s; /*Animationens function, det tar 2s att färdas upp och 0.5s för animationen att börja*/
+position: relative; /*Gör så att knapparna kan röra sig*/
+}
+
+.popover .close::after { /*Klassen för att kunna stänga menyn*/
+right: 0; /*Gör så att krysset ligger i högra hörnet*/
+top: 0; /*Gör så att krysset är på toppen av menyn*/
+width: 60px; /*Kryssets bredd*/
+height: 50px; /*Kryssets höjd mellanrum*/
+position: absolute; /*Gör så att krysset är fast när amineringen körs*/
+display: flex; /*Gör så att man kan positionera krysset på ett mycket smidigare sätt*/
+z-index: 1; /*Gör så krysset syns på framsidan och inte baksidan av menyn*/
+font-size: 30px; /*Storleken på krysset*/
+align-items: center; /*Gör så att krysset är centrerat*/
+justify-content: center; /*Gör så att krysset också är centrerat*/
+color: rgb(255, 255, 255); /*Färgen på krysset*/
+content: "¤"; /*Krysset, jag väljer lite olika symboler ibland bara för att det är roligare så*/
+cursor: pointer; /*Gör så du får en "pointer" på mussen*/
+opacity: 0; /*Gör så att krysset inte syns innan animationen*/
+animation: 1s fadeIn ease forwards .5s; /*Själva animationens rörelse*/
+
+}
+
+@keyframes grow { /*Menyns storlek efter animationen*/
+100% {
+  height: 90%; /*Det är 90% för att inte täcka hela höjden på sidan*/
+  width: 90%; /*Det är 90% för att inte täcka hela bredden på sidan*/
+}
+}
+
+@keyframes fadeIn { /*Settings för kryssets animation*/
+100% {
+opacity: 1; /*Gör så att krysset syns när animationen är klar*/
+}
+}
+
+@keyframes slideUp { /*Settings för knapparnas animation*/
+100% {
+  transform: translateY(0); /**/
+  opacity: 1; /*Gör så att knapparna syns när animationen är klar*/
+}
+}
+/*Slut på menyn och knappar*/
+
+
+
+
+/*stylar knapparna i menyn*/
+
+.wrapper ul { /*Listan på knapparna och animationens positioner*/
+  position: absolute; /*Gör så att knapparna och animationen håller sig centralt och på plats när knapparna kommer upp*/
+  top: 50%; /*Position från top, utan denna hade inte knapparna varit i mitten*/
+  left: 50%; /*Position från vänster, utan denna hade inte knapparna varit i mitten*/
+  transform: translate(-50%, -50%); /*Bestämmer hur knapparna ska poppa up, animationen när man får upp knapparna*/
+  list-style: none; /*Gör så att man inte ser att det är någon lista*/
+  text-align: center; /*Gör så att texten håller sig centrerad*/
+}
+.wrapper ul li { /*Positionerna på listans knappar*/
+  margin: 20px 10px; /*Hur bredd och hur stor höjden är*/
+}
+.wrapper ul li a { /*Lite fixering på animationen och knapparna/länkarna*/
+  text-decoration: none; /*Gör så att man inte ser att det är länkar*/
+  font-size: 40px; /*Storleken på texten*/
+  padding: 5px 30px; /*Tjockleken på animationen/backgrunden*/
+  color: rgb(255, 255, 255); /*Färg på text*/
+  border-radius: 50px; /*Hur runda kanter knapparna har*/
+  background: rgb(0, 0, 0); /*Backgrunden på knapparna, utan backgrund ser man bara animationen och text, denna bbackgrund gör så att det ser ut som att animationen går runt knapparna*/
+  position: relative; /*Gör så att animationen bakom knapparna håller sig i position när man hovrar*/
+  line-height: 50px; /*Hur stort mellanrum det är mellan knapparna*/
+  font-family: 'Iceland', cursive; /*Stilen på texten*/
+
+}
+.wrapper ul li a:after { /*Animationen på knapparna*/
+  position: absolute; /*Gör så att animationen på knapparna har samma följd och sitter på samma sätt som knapparna */
+  content: ""; /*Gör så att jag kan bygga animationen*/
+  background: linear-gradient(#14ffe9, #f2ff3f, #ff00e0); /*Färg kombinationen på animationen*/
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 104%; /*Bredden på animationen*/
+  height: 110%; /*Höjden på animationen, höjden och bredden ska vara lite större än knapparna för att man ska kunna se animationen*/
+  left: -2%; /*Position på animationen*/
+  top: -6%; /*Hur stor bordern med ringen är på topen*/
+  border-radius: 50px; /*Hur rund bordern är*/
+  transform: scaleX(0); /*Bestämmer hur border animationen ska öppnas, Y eller X led, i detta fall så börjar animationen från mitten och uu, i X-led*/
+  z-index: -1; /*Gör så att animationen håller sig bakom knapparna*/
+  animation: rotate 1.5s linear infinite; /*Animationens funktion, hur snabbt färgerna flyttar sig*/
+  transition: transform 0.3s ease; /*Hur snabbt animationen förflyttar sig när man hovrar på knapparna*/
+  
+}
+.wrapper a:hover:after { /*Gör så att färgerna vissas när man hovrar*/
+  transform: scaleX(1); /*I vilken riktning färgerna ska färdas*/
+}
+.wrapper a:hover { /*Hur knapparna/länkarna ska byta färg när man hovrar. Om man vill att de ska byta färg*/
+  color: rgb(2, 111, 161); /*Vilken färg texten har när man hovrar*/
+}
+
+@keyframes rotate { /*Rotationen på färgerna*/
+  100%{
+    filter: hue-rotate(360deg); /*Färgerna roterar 360 grader, alltså runt och runt*/
+  }
+}
+
+
+

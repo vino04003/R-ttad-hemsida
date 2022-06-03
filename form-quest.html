@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funpage</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Innehåller det man ser-->
+    <form action="index.html" method="get"> <!--Början på form, jag har en action som gör att jag kommer hamna på home page när man klickar på submit-->
+        <label for="fname">Name:</label> <!--Rubriken till inputen med id "fname"-->
+        <br> <!--Break, vilket gör så att rubriken hamnar ovanför inputen och inte bredvid-->
+        <input type="text" id="fname" name="fname" placeholder="Iók"> <!--Inputen där man skriver in sitt namn-->
+        <br> <!--Break, denna är tillför att skapa mellanrum mellan Namn och efternamn-->
+        <label for="lname">last name:</label> <!--Rubriken till inputen med id "lname"-->
+        <br> <!--Break, vilket gör så att rubriken hamnar ovanför inputen och inte bredvid-->
+        <input type="text" id="lname" name="lname" placeholder="Klien"> <!--Inputen där man skriver in sitt efternamn-->
+        <br> <!--Break, mellanrum-->
+        <br> <!--Break, mellanrum-->
+    <main> <!--Huvudinnehållet-->
+        <fieldset> <!--Denna gör så att dessa frågor under har en "border" runt sig-->
+            <legend>Favorite driver</legend> <!--Detta är rubriken för frågorna om förarna, denna är imbädad i fieldest border-->
+            <input type="radio" id="Lewis" name="fav_f1" value="Lewis"> <!--Detta är inputen till "Lewis" och har typen "radio", typen radio gör så att man bara kan välja ett alternativ av de som har samma typ, radio-->
+            <label for="Lewis">Lewis Hamilton</label> <!--Alternativet "Lewis"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="radio" id="Michael" name="fav_f1" value="Michael"> <!--Detta är inputen till "Michael" och har typen "radio"-->
+            <label for="Michael">Michael Schumacher</label> <!--Alternativet "Michael"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="radio" id="Max" name="fav_f1" value="Max"> <!--Detta är inputen till "Max" och har typen "radio"-->
+            <label for="Max">Max Verstappen</label> <!--Alternativet "Max"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="radio" id="Daniel" name="fav_f1" value="Daniel"> <!--Detta är inputen till "Daniel" och har typen "radio"-->
+            <label for="Daniel">Daniel Ricardo</label> <!--Alternativet "Daniel"--> 
+        </fieldset> <!--Slut på "border" runt frågorna om F1 förare-->
+        <br> <!--Break, mellanrum mellan alternativen "Favorite driver" och "Favorite track"-->
+        <fieldset> <!--Denna gör så att dessa frågor under har en "border" runt sig-->
+            <legend>Favorite Track</legend> <!--Detta är rubriken för frågorna om favorit track, denna är imbädad i fieldest border-->
+            <input type="checkbox" id="Singapore" name="fav_f1" value="Singapore"> <!--Detta är inputen till "Singapore" och har typen "checkbox", typen checkbox gör så att man kan välja flera alternativ av de som har samma typ, checkbox-->
+            <label for="Singapore">Singapore</label> <!--Alternativet "Singapore"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="checkbox" id="Abu-Dhabi" name="fav_f1" value="Abu-Dhabi"> <!--Detta är inputen till "Abu Dhabi" och har typen "checkbox"-->
+            <label for="Abu-Dhabi">Abu Dhabi</label> <!--Alternativet "Abu Dhabi"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="checkbox" id="Silverstone" name="fav_f1" value="Silverstone"> <!--Detta är inputen till "silverstone" och har typen "checkbox"-->
+            <label for="Silverstone">Silverstone</label> <!--Alternativet "Silverstone"-->
+            <br> <!--Break, detta break gör så att nästa alternativ inte är bredvid det förra, utan under varandra, i columner istället för att vara på en rad-->
+            <input type="checkbox" id="Monaco" name="fav_f1" value="Monaco"> <!--Detta är inputen till "monaco" och har typen "checkbox"-->
+            <label for="Monaco">Monaco</label> <!--Alternativet "Monaco"-->
+        </fieldset> <!--Slut på "border" runt frågorna om "Favortie track"-->
+       <p><label for="textarea">Write if you want.</label></p> <!--Detta är förklaringen för boxen nedan, jag använder ett till element "<p>" för att göra så att texten är över boxen och inte vid sidan om-->
+        <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea> <!--Detta är själva boxen du kan skriva i-->
+    </main> <!--Slut på huvudinnehållet-->
+        <br> <!--Break, denna gör så att label och input för email inte är bredvid textarea boxen utan under boxen--> 
+        <label for="email">Enter your email:</label> <!--Förklaringen vad man ska skriva-->
+        <input type="email" id="email" name="email" required> <!--Detta är inputen till email och jag har requierd som gör att man måste skriva i denna för att gå vidare-->
+        <br> <!--Break, denna gör så att submit knappen inte är bredvid email inputen utan under istället-->
+        <input type="submit" value="Submit"> <!--Submit knappen-->
+      </form> <!--Slut på form-->
+</body> <!--Slut på bodyn och allt innehåll-->
+</html> <!--Slut på sidan-->
+
+
+
+

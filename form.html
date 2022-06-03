@@ -1,0 +1,48 @@
+<!--Jag hade inte så mycket tid kvar till denna sida så det blev inte så bra stylingen och positioner vid knappen osv-->
+
+<!DOCTYPE html> <!--Används för att koden ska läsas som html-->
+<html lang="en"> <!--All html kod ska skrivas mellan html taggarna, lang="en" vilket hjälper med översättnigar och skärmläsare-->
+<head> <!--Information som inte visas för användaren-->
+    <meta charset="UTF-8"> <!--Vilken teckenkodning sidan använder-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Stilen på texten, tagen från google-->
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Stilen på texten, tagen från google-->
+      <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Lexend+Exa:wght@500&family=Yuji+Syuku&display=swap" rel="stylesheet"> <!--Stilen på texten, tagen från google-->
+    <link rel="stylesheet" href="form.css" > <!--Länk till css dokumentet-->
+    <title>Funpage</title> <!--Titlen på sidans tab-->
+</head> <!--Slut på informationen som inte visas för användaren-->
+<body> <!--Innehåller det man ser-->
+
+  <!--Globala menyn-->
+  <nav class="buttons"> <!--Denna div är gjord för att kunna ge meny knapparna snygga detalier med hjälp av klassen "buttons"-->
+    <ul> <!--Listan för knapparna i globala menyn-->
+        <li><a href="index.html">Home</a></li> <!--"Home" knappen i globala menyn med en länk till index sidan (home page)-->
+        <li><a href="news.html">News</a></li> <!--"News" knappen i globala menyn med en länk till "News" sidan (news page)-->
+        <li><a href="funpage.html">Funpage</a></li> <!--"Funpage" knappen i globala menyn med en länk till "Funpage" sidan ( funpage)-->
+        <li><a href="motorsport.html">Motorsport</a></li> <!--"Motorsport" knappen i globala menyn med en länk till "Motorsport" sidan (motorsport page)-->
+        <li><a href="form.html">Form</a></li> <!--"Form" knappen i globala menyn med en länk till "Form" sidan (form page)-->
+      </ul><!--Slut på listan med knappar till globala menyn-->
+    </nav><!--Slut på diven som innehåller alla knappar med klassen "buttons"-->
+    <!--Slut på globala menyn-->
+<main>
+  <div class="container"> <!--Detta är diven som allt kommer vara i-->
+    <div class="brand-title">FORM</div> <!--Detta är Titels som man ganska tydligt kan se på namnen av klassen-->
+
+    <div class="inputs"> <!--Denna div är den som kommer bestämma mellanrummet mellan elementen och textens position-->
+      <label>EMAIL</label> <!--Detta är namnet på första inputen vilket är första raden du kan skriva i, till för email-->
+      <input type="email" placeholder="user@gmail.com"/> <!--Förklarar vilken typ det är som skrivs in, i detta är det typen "email" och det har en lite förklaring som är i "placeholder"-->
+
+      <label>PASSWORD</label> <!--Detta är namnet på första inputen vilket är andra raden du kan skriva i, till för lösenord-->
+      <input type="password" placeholder="Min 6 charaters long"/> <!--Förklarar vilken typ det är som skrivs in, i detta är det typen "password" och det har en lite förklaring som är i "placeholder"-->
+
+    <div class="submit"> <!--Diven som knappen kommer vara i-->
+      <a href="form-quest.html" class="btn">Move on</a> <!--Själva knappen med en länk till nästa sida-->
+  </div> <!--Slut diven på knappen-->
+</main>
+
+    </div> <!--Slut diven med klassen ".inputs"-->
+    <p>Made by: Vincent N Petrovic</p> <!--En liten "made by" text-->
+  </div> <!--Slut på "container" diven-->
+  </body> <!--Slut på bodyn och allt innehåll-->
+</html> <!--Slut på sidan-->
